@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dividir un div en 3 partes verticales con colores</title>
+    <style>
+        .contenedor {
+            display: flex;
+            flex-direction: column;
+            height: 300px; /* Altura total del contenedor */
+        }
+
+        .seccion {
+            flex: 1; /* Divide el contenedor en 3 partes iguales verticalmente */
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Colores para cada sección */
+        .seccion:nth-child(1) {
+            background-color: red;
+            color: white;
+        }
+
+        .seccion:nth-child(2) {
+            background-color: green;
+            color: white;
+        }
+
+        .seccion:nth-child(3) {
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="seccion">
+            <h2>Sección 1</h2>
+            <p>Contenido de la sección 1.</p>
+        </div>
+        <div class="seccion">
+            <h2>Sección 2</h2>
+            <p>Contenido de la sección 2.</p>
+        </div>
+        <div class="seccion">
+            <h2>Sección 3</h2>
+            <p>Contenido de la sección 3.</p>
+        </div>
+    </div>
+</body>
+</html>
