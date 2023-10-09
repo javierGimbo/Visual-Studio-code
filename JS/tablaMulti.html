@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tabla Multiplicar 01</title>
 </head>
-<body>
-    <script src="/JS/tablaMulti.js"></script>
+<body>    
+    <form name="frmNumero">
+        <label>Número: </label>
+        <input type="number" name="numero">        
+    </form><br>
+    <button onclick="procesarFormulario()">Tabla de Multiplicar</button>
+    <div id="salida"></div>
+    <script src="./tablaMulti.js"></script>
 </body>
 </html>

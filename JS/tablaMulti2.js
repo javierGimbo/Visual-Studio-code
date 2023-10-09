@@ -1,5 +1,5 @@
 function procesarFormulario(){
-    const num = Number(frmNumero.numero.value);
+    const num = Number(frmNumero.tablaDeMulti.value);
     let salida = "";
     for (let i=1;i<=10;i++){
         salida += num + " x " + i + " = " + num*i + "<br>";
