@@ -35,19 +35,9 @@ if response.status_code == 200:
         # Si el equipo no existe pone este mensaje
            
             indice+=1
-            
-    print("No se encontró un equipo con ese nombre.")
-    ''' for equipo in data["data"]:
-        if equipo["name"] == nombre_equipo:
-            print("Nombre completo:", equipo["full_name"])
-            print("Abreviatura:", equipo["abbreviation"])
-            print("Ciudad:", equipo["city"])
-            print("Conferencia:", equipo["conference"])
-            print("División:", equipo["division"])
-            #break
-    else:
-        # Si el equipo no existe pone este mensaje
-        print("No se encontró un equipo con ese nombre.")'''
+    if not encontradao:     
+        print("No se encontró un equipo con ese nombre.")
+   
 else:
         # Si no carga el archivo Json muestra el siguiente mensaje
     print("Error al obtener los datos. Código de estado:", response.status_code)
