@@ -60,8 +60,6 @@ if response.status_code == 200:
             indice+=1    
         else:
             indice+=1
-            
-
 
 else:
         # Si no carga el archivo Json muestra el siguiente mensaje
