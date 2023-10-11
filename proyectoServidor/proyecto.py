@@ -49,7 +49,7 @@ if response.status_code == 200:
            
         else:
             indice+=1       
-   
+   # Se pide de que division se quiere saber los equipos
     divisionEquipos = input("¿De que división quieres saber los equipos?: ").capitalize()
     print("EQUIPOS DE LA DIVISIÓN " + divisionEquipos)
     indice=0
