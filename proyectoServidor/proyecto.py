@@ -80,4 +80,8 @@ if response.status_code == 200:
 
         respuesta = input("¿Quieres seguir buscando equipos? SI/NO: ").lower()
         if respuesta != "si":
+<<<<<<< HEAD
             continuar = False
+=======
+            continuar = False
+>>>>>>> 8b84cf2e1859c0ab1ec7ac011229e3149bde6250
