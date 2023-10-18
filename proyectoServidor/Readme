@@ -1,0 +1,19 @@
+Este es un programa en Python que te permite buscar información sobre equipos de baloncesto. Utiliza la API de "balldontlie" para obtener datos sobre equipos de baloncesto de la NBA.
+
+Asegúrate de tener instalado Python en tu sistema. Puedes descargarlo desde python.org.
+
+Además, necesitarás la librería requests, que puedes instalar con el siguiente comando:
+pip install requests
+
+
+Ejecuta el programa en tu entorno de Python.
+
+El programa te pedirá el nombre de un equipo de baloncesto. Ingresa el nombre del equipo y el programa buscará la información asociada a ese equipo.
+
+Después de encontrar el equipo, el programa te preguntará si deseas saber más información sobre equipos de una conferencia en particular. Ingresa "WEST" para la Conferencia Oeste o "EAST" para la Conferencia Este. El programa mostrará una lista de equipos de esa conferencia.
+
+Luego, el programa te preguntará si deseas saber más información sobre equipos de una división en particular. Ingresa el nombre de la división (por ejemplo, "Atlantic" o "Central"). El programa mostrará una lista de equipos de esa división.
+
+Después de cada consulta, el programa te preguntará si deseas seguir buscando equipos. Ingresa "SI" para continuar o "NO" para finalizar la búsqueda.
+
+Este programa utiliza la API de "balldontlie" para obtener los datos de los equipos de baloncesto. Puedes encontrar más información sobre la API en balldontlie.io.
