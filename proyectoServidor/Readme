@@ -14,4 +14,8 @@ PASOS:
 
 5- Después de cada consulta, el programa te preguntará si deseas seguir buscando equipos. Ingresa "SI" para continuar o "NO" para finalizar la búsqueda.
 
+<<<<<<< HEAD
 Este programa utiliza la API de "balldontlie" para obtener los datos de los equipos de baloncesto. Puedes encontrar más información sobre la API en balldontlie.io.
+=======
+Este programa utiliza la API de "balldontlie" para obtener los datos de los equipos de baloncesto. Puedes encontrar más información sobre la API en balldontlie.io.
+>>>>>>> dc6ec971a03e4c86fc676993dcf58258d2e40e84
