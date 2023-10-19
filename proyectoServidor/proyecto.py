@@ -21,12 +21,12 @@ if response.status_code == 200:
         while not encontrado:
             # Pide al usuario el nombre de un equipo
             # .capitalize() es para que ponga siempre la primera letra en mayúscula
-            nombre_equipo = input("Ingresa el nombre del equipo: ").capitalize()
+            nombreEquipo = input("Ingresa el nombre del equipo: ").capitalize()
 
             # Busca el equipo con el nombre proporcionado en los datos JSON
             indice = 0
             while indice < len(data2) and not encontrado:
-                if data2[indice].get("name") == nombre_equipo:
+                if data2[indice].get("name") == nombreEquipo:
                     print("Nombre completo:", data2[indice]["full_name"])
                     print("Abreviatura:", data2[indice]["abbreviation"])
                     print("Ciudad:", data2[indice]["city"])
@@ -46,9 +46,9 @@ if response.status_code == 200:
             print("EQUIPOS DE LA CONFERENCIA " + conferenciaEquipos)
 
             # Verificar si la conferencia proporcionada existe en los datos JSON
-            conferencia_existente = any(data2[indice].get("conference") == conferenciaEquipos for indice in range(len(data2)))
+            conferenciaExistente = any(data2[indice].get("conference") == conferenciaEquipos for indice in range(len(data2)))
 
-            if conferencia_existente:
+            if conferenciaExistente:
                 indice = 0
                 while indice < len(data2):
                     if data2[indice].get("conference") == conferenciaEquipos:
@@ -66,9 +66,9 @@ if response.status_code == 200:
             print("EQUIPOS DE LA DIVISIÓN " + divisionEquipos)
 
             # Verificar si la división proporcionada existe en los datos JSON
-            division_existente = any(data2[indice].get("division") == divisionEquipos for indice in range(len(data2)))
+            divisionExistente = any(data2[indice].get("division") == divisionEquipos for indice in range(len(data2)))
 
-            if division_existente:
+            if divisionExistente:
                 indice = 0
                 while indice < len(data2):
                     if data2[indice].get("division") == divisionEquipos:
@@ -81,6 +81,3 @@ if response.status_code == 200:
         respuesta = input("¿Quieres seguir buscando equipos? SI/NO: ").lower()
         if respuesta != "si":
             continuar = False
-
-
-#prueba de commit
