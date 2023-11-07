@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adivina el numero</title>
+</head>
+<body>
+    <h1>bienvenido a la adivinacion del numero</h1>
+    <form action="{% url 'adivina' %}" method="post">
+        {% csrf_token %}
+        <input type="number" name="adivina" required>
+        <button type="submit">Submit</button>
+    </form>
+    
+</body>
+</html>
