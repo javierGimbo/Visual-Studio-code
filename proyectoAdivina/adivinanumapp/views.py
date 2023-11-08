@@ -4,11 +4,11 @@ import random
 # Create your views here.
 
 def home(request):
-    return render(request, 'adivina/home.html')
+    return render(request, 'adivinanumapp/adivina.html')
 
 def guess(request):
-    random_number = random.randint(1,100)
-    user_guess = int(request.POST)['guess']
+    random_number = random.randint(1,2)
+    user_guess = int(request.POST['guess'])
 
     if user_guess == random_number:
         message = 'Acertaste!'
@@ -16,7 +16,7 @@ def guess(request):
     if user_guess > random_number:
         message = 'Es mas pequeño!'
 
-    else:
+    if user_guess< random_number:
         message = 'Es mas grande!'
 
-    return render(request, 'adivina/adivina.html', {'message':message})
+    return render(request, 'adivinanumapp/guess.html', {'message':message})
