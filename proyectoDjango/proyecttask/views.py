@@ -1,4 +1,5 @@
 from datetime import *
+from django.views import View
 from django.utils import timezone
 from django.shortcuts import render, redirect
 from .models import Task
@@ -15,4 +16,22 @@ def proyecttask_list(request):
     else:
         form=TaskForm()
 
-    return render(request, 'proyecttask/proyecttask_list.html', {'task': task, 'form':form})   
+    return render(request, 'proyecttask/proyecttask_list.html', {'task': task, 'form':form})
+
+
+
+"""class proyecttask_list(View):
+    def get(self, request):
+        form = TaskForm()
+        tasks =Task.objects.all()
+        return render(request, 'proyecttask_list.html', {'tasks': tasks, 'form': form})
+
+    def post(self, request):
+        form=TaskForm(request.POST)
+        tasks =Task.objects.all()
+        if form.is_valid():
+            form.save()
+            return redirect('proyecttask_list')
+        return render(request, 'self.proyecttask_list.html', {'task': Task, 'form':form})
+"""
+
