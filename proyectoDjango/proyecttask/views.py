@@ -45,8 +45,15 @@ def proyecttask_num(request,pk):
         tasks= get_object_or_404(Task,pk=pk)
         return render (request, 'proyecttask/proyecttask_num.html', {'tasks':tasks})
 
-def proyecttask_num(request):
-        tasks=TaskForm()
-        return render (request, 'proyecttask/proyecttask_new.html', {'tasks':tasks})
+def proyecttask_new(request):
+        if request.method == 'POST':
+            form=TaskForm(request.POST)
+            if form.is_valid():
+        
+                form.save()
+            return redirect('proyecttask_list')
+        else:
+            form=TaskForm()
 
+        return render(request, 'proyecttask/proyecttask_new.html', {'form':form})
 

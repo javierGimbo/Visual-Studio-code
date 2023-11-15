@@ -18,7 +18,8 @@
         <li>No hay tareas por hacer.</li>
         {% endfor %}
         </ul>
-
+<form action="{% url 'proyecttask_new' %}">
         <button type="submit">Nueva Tarea</button>
+</form>
 </body>
 </html>
