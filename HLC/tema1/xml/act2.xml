@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<concurso>
+    <!-- Información del concurso -->
+    <codigo_concurso>FOA19</codigo_concurso>
+    <nombre>Concurso de Pájaros 2019</nombre>
+    <lugar>Ciudad X</lugar>
+    <fecha_inicio>2023-01-01</fecha_inicio>
+    <fecha_fin>2023-01-03</fecha_fin>
+
+    <!-- Información de la solicitud de inscripción -->
+    <solicitud_inscripcion>
+        <!-- Información de la asociación -->
+        <asociacion>
+            <codigo>AA123</codigo>
+            <razon_social>Nombre de la Asociación</razon_social>
+            <telefono>123456789</telefono>
+            <fax>987654321</fax>
+        </asociacion>
+
+        <!-- Información de la inscripción -->
+        <inscripcion>
+            <categoria>Categoria_X</categoria>
+            <num_pajaros>5</num_pajaros>
+            <costo_total>20€</costo_total>
+        </inscripcion>
+
+        <!-- Información de la ficha de inscripción -->
+        <ficha_inscripcion>
+            <nombre_criador>Nombre del Criador</nombre_criador>
+            <telefonos>
+                <telefono>123456789</telefono>
+                <!-- Puedes agregar más números de teléfono si es necesario -->
+            </telefonos>
+            <codigo_criador>AA123</codigo_criador>
+            <tipo_catalogo_solicitado>papel</tipo_catalogo_solicitado>
+            <costo_catalogo>12€</costo_catalogo>
+            <mostrar_telefonos_en_catalogo>si</mostrar_telefonos_en_catalogo>
+            <total_a_pagar>32€</total_a_pagar>
+        </ficha_inscripcion>
+    </solicitud_inscripcion>
+</concurso>

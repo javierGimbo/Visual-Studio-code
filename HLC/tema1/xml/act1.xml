@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<campeonato_ornitologico>
+    <edicion>19</edicion>
+    <nombre>Campeonato Ornitológico de Andalucía (FOA)</nombre>
+    <ubicacion>
+        <club>Club Deportivo Hípica Botafuegos</club>
+        <ciudad>Algeciras</ciudad>
+        <provincia>Cádiz</provincia>
+    </ubicacion>
+    <aforo>15000</aforo>
+    <fechas>
+        <inicio>2023-11-07</inicio>
+        <fin>2023-11-16</fin>
+    </fechas>
+
+    <comite_organizador>
+        <miembro>
+            <nombre>Miguel Ángel López Rodríguez</nombre>
+            <fecha_nacimiento>1965-06-14</fecha_nacimiento>
+            <cargo>Presidente</cargo>
+            <desde_anio>1990</desde_anio>
+            <telefono>666777888</telefono>
+            <correo>presidente@foa.es</correo>
+            <direccion>Calle Argentina, 1, 28086 Madrid</direccion>
+            <asociaciones>
+                <asociacion nombre="Asociación Ornitológica Madrileña" cargo="Presidente"/>
+                <asociacion nombre="Asociación Roquetera Ornitológica" cargo="Criador"/>
+            </asociaciones>
+            <palmares>
+                <medallas>
+                    <oro>58</oro>
+                    <plata>40</plata>
+                    <bronce>76</bronce>
+                </medallas>
+            </palmares>
+        </miembro>
+
+        <miembro>
+            <nombre>Alfredo Correa Correa</nombre>
+            <fecha_nacimiento>1983-06-24</fecha_nacimiento>
+            <cargo>Secretario</cargo>
+            <desde_anio>2001</desde_anio>
+            <telefono>666555444</telefono>
+            <correo>secretario@foa.es</correo>
+            <direccion>Carretera de Ronda, 106, 18003 Granada</direccion>
+            <asociaciones>
+                <asociacion nombre="Asociación Ornitológica Alhambra" cargo="Criador"/>
+            </asociaciones>
+            <palmares>
+                <medallas>
+                    <oro>20</oro>
+                    <plata>10</plata>
+                </medallas>
+            </palmares>
+        </miembro>
+
+        <miembro>
+            <nombre>Antonio Gómez Serrano</nombre>
+            <fecha_nacimiento>1979-10-29</fecha_nacimiento>
+            <cargo>Tesorero</cargo>
+            <desde_anio>2023</desde_anio>
+            <telefono>666111222</telefono>
+            <correo>tesorero@foa.es</correo>
+            <direccion>Avenida de la Legión, s/n, 04740 Roquetas de Mar (Almería)</direccion>
+            <asociaciones>
+                <asociacion nombre="Asociación Roquetera Ornitológica" cargo="Presidente"/>
+            </asociaciones>
+            <palmares>
+                <!-- Aún no ha conseguido ninguna medalla -->
+            </palmares>
+        </miembro>
+    </comite_organizador>
+</campeonato_ornitologico>
