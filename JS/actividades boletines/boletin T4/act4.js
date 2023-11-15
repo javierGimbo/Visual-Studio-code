@@ -56,7 +56,7 @@ class Rectangulo extends Figura{
     }
 
     imprimir(){
-        return "Soy una figura de color " + this.color + " y de area tengo " +this.calcularArea();
+        return "Soy una rectangulo de color " + this.color + " y de area tengo " +this.calcularArea();
     }
 
 }
@@ -84,7 +84,7 @@ class Ciruculo extends Figura{
 
     }
     imprimir(){
-        return "Soy una figura de color " + this.color + " y de area tengo " +this.calcularArea();
+        return "Soy un circulo de color " + this.color + " y de area tengo " +this.calcularArea();
     }
 
 }
