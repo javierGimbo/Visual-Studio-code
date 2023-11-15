@@ -45,4 +45,8 @@ def proyecttask_num(request,pk):
         tasks= get_object_or_404(Task,pk=pk)
         return render (request, 'proyecttask/proyecttask_num.html', {'tasks':tasks})
 
+def proyecttask_num(request):
+        tasks=TaskForm()
+        return render (request, 'proyecttask/proyecttask_new.html', {'tasks':tasks})
+
 
