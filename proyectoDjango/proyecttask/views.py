@@ -1,7 +1,7 @@
 from datetime import *
 from django.views import View
 from django.utils import timezone
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from .models import Task
 from .form import TaskForm
 
@@ -11,6 +11,7 @@ from .form import TaskForm
     if request.method == 'POST':
         form=TaskForm(request.POST)
         if form.is_valid():
+        
             form.save()
             return redirect('proyecttask_list')
     else:
@@ -24,14 +25,24 @@ class ProyecttaskList(View):
     def get(self, request):
         form = TaskForm()
         tasks =Task.objects.all()
-        return render(request, 'proyecttask/proyecttask_list.html', {'task': tasks, 'form': form})
+        return render(request, 'proyecttask/proyecttask_list.html', {'tasks': tasks, 'form': form})
 
     def post(self, request):
         form=TaskForm(request.POST) 
         if form.is_valid():
-            form.save()
+            title = form.cleaned_data["title"]
+            text = form.cleaned_data["text"]
+            completado = form.cleaned_data["completado"]
+
+            Task.objects.create(title=title, text=text, completado=completado)
+            #form.save()
             return redirect('proyecttask_list')
         tasks =Task.objects.all()
-        return render(request, 'proyecttask/proyecttask_list.html', {'task': tasks, 'form':form})
+        return render(request, 'proyecttask/proyecttask_list.html', {'tasks': tasks, 'form':form})
+    
+
+def proyecttask_num(request,pk):
+        tasks= get_object_or_404(Task,pk=pk)
+        return render (request, 'proyecttask/proyecttask_num.html', {'tasks':tasks})
 
 
