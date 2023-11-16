@@ -1,8 +1,8 @@
-from django import forms
 from .models import Comentario
-
+from django import forms
 
 class ComentarioForm(forms.ModelForm):
+
     class Meta:
         model = Comentario
-        fields = ['title', 'text', 'completado']
+        fields = ['nombre', 'correo', 'comentario']

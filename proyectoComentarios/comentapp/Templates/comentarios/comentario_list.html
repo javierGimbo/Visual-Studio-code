@@ -1,0 +1,14 @@
+<html>
+<head>
+    <title>ToDoList</title>    
+</head>
+<body>
+
+    <h1>Completar formulario</h1>
+    <form action="{% url 'comentario_list'%}" method="POST">
+        {% csrf_token%}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
