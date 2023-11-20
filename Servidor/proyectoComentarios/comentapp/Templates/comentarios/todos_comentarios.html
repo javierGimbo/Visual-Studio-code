@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Todos los comentarios</title>
+</head>
+<body>
+    <h1>Lista de Comentarios</h1>
+    <ul>
+        {% for comentario in comentarios %}
+        <li>{{ comentario.nombre }} - {{ comentario.correo }} ({{ comentario.comentario }})</li>
+        {% empty %}
+        <li>No hay comentarios que mostrar.</li>
+        {% endfor %}
+    </ul>
+
+    <form action="{% url 'comentario_list' %}">
+        <button type="submit">Añadir otro comentario</button>
+    </form>
+</body>
+</html>

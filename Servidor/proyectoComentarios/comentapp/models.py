@@ -4,10 +4,13 @@ from django.db import models
 
 
 class Comentario(models.Model):
-    title = models.CharField(max_length=200)
-    text = models.TextField()
-
+    nombre = models.CharField(max_length=200)
+    correo = models.TextField()
+    comentario = models.TextField()
 
 
     def __str__(self):
-        return self.title
+        return self.nombre
+    
+
+    '''si se modifica algo hay que hacer el migration'''

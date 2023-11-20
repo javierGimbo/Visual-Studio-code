@@ -1,25 +1,37 @@
+from django.utils import timezone
 from django.shortcuts import redirect, render
 from django.views import View
-from .models import Comentario
 from .forms import ComentarioForm
+from .models import Comentario
 
-# Create your views here.
 
-class ComentList(View):
+
+class ComentarioList(View): 
     def get(self, request):
-        comentarios = ComentarioForm()
-        comentario =Comentario.objects.all()
-        return render(request, 'comentapp/comentapp.html', {'comentario': comentario, 'form': comentarios})
-
+        form=ComentarioForm()
+        comentario = Comentario.objects.all()
+        return render(request, 'comentarios/comentario_list.html', {'comentario': comentario, 'form': form})
+    
     def post(self, request):
-        comentarios = ComentarioForm(request.POST) 
-        if comentarios.is_valid():
-            title = comentarios.cleaned_data["title"]
-            text = comentarios.cleaned_data["text"]
-            completado = comentarios.cleaned_data["completado"]
+        form=ComentarioForm(request.POST)
+        if form.is_valid():
+            form.save()
 
-            Comentario.objects.create(title=title, text=text, completado=completado)
-            #form.save()
-            return redirect('comentList_list')
-        comentario =Comentario.objects.all()
-        return render(request, 'comentapp/comentapp.html', {'comentario': Comentario, 'form': comentario})
+            return redirect('confirmacion')
+       
+        return render(request, 'comentarios/comentario_list.html', {'form': form})
+    
+    '''palabra View lo paso a la url como vista '''
+
+class Confirmacion(View):
+
+    def get(self, request):
+        return render(request, 'comentarios/confirmacion.html')
+
+
+class TodosComentarios(View):
+
+    def get(self, request):
+        comentarios = Comentario.objects.all()
+        return render(request, 'comentarios/todos_comentarios.html', {'comentarios': comentarios})
+    
