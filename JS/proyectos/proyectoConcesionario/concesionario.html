@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concesionario Hnos Machado</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="bootstrap/js/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body {
+            margin-left: 10px;
+        }
+        
+        form {
+            display: none;
+        }
+        
+        #formularios {
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Concesionario Hnos Machado</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#" onclick="gestionFormularios('frmAltaCli');">Alta Cliente</a>
+                </li>
+                <li>
+                    <a href="#" onclick="gestionFormularios('frmAltaVehiculo');">Alta Vehículo</a>
+                </li>
+                <li>
+                    <a href="#" onclick="gestionFormularios('frmAltaAlquiler');">Alta Alquiler</a>
+                </li>
+                <li>
+                    <a href="#" onclick="gestionFormularios('frmBajaAlquiler');">Baja Alquiler</a>
+                </li>
+                <li>
+                    <a href="#" onclick="gestionFormularios('ListadoCli');">Listado Clientes</a>
+                </li>
+                <li>
+                    <a href="#" onclick="gestionFormularios('ListadoVehiculo');">Listado Vehículo</a>
+                </li>
+                <li>
+                    <a href="#" onclick="gestionFormularios('ListadoAlquiler');">Listado Alquiler</a>
+                </li>
+                <li>
+                    <a href="#" onclick="gestionFormularios('ListadoAlquilerCli');">Listado Alquileres de Clientes</a>
+                </li>
+                <li>
+                    <a href="#" onclick="gestionFormularios('ListadoElectricos');">Listado Coches Electricos</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <script type="text/javascript" src="js/objetos.js"></script>
+    <script type="text/javascript" src="js/codigo.js"></script>
+</body>
+</html>
