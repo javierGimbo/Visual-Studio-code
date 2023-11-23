@@ -22,5 +22,8 @@ class Libro(models.Model):
     genero= models.CharField()
     isbn= models.IntegerField()
     resumen= models.TextField()
-    disponibilidad= models.TextField()
+    disponibilidad=
+
+
+    '''prueba'''
 
