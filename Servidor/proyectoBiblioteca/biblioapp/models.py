@@ -25,5 +25,5 @@ class Libro(models.Model):
     disponibilidad=
 
 
-    '''prueba'''
+    '''prueba sxgdfgdf'''
 
