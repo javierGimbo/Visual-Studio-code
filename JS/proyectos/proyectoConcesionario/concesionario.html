@@ -59,6 +59,164 @@
             </ul>
         </div>
     </nav>
+    <div class="container-fluid" id="formularios">
+        <form class="form-horizontal" name="frmAltaCli" id="frmAltaCli">
+            <fieldset>
+                <!-- Form Name -->
+                <legend>Alta de clientes</legend>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="txtDni">Dni</label>
+                    <div class="col-xs-4">
+                        <input id="txtDni" name="txtDni" placeholder="Dni" class="form-control input-md" type="text">
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="txtNombre">Nombre</label>
+                    <div class="col-xs-4">
+                        <input id="txtNombre" name="txtNombre" placeholder="Nombre" class="form-control input-md" type="text">
+                    </div>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="txtApellidos">Apellidos</label>
+                    <div class="col-xs-4">
+                        <input id="txtApellidos" name="txtApellidos" placeholder="Apellidos" class="form-control input-md" type="text">
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="txtUsuario">Usuario</label>
+                    <div class="col-xs-4">
+                        <input id="txtUsuario" name="txtUsuario" placeholder="Usuario" class="form-control input-md" type="text">
+                    </div>
+                </div>
+
+                <!-- Input Button -->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="btnAceptarAltaCli"></label>
+                    <div class="col-xs-4">
+                        <input type="button" id="btnAceptarAltaCli" name="btnAceptarAltaCli" class="btn btn-primary" value="Aceptar" onclick="aceptarAltaCliente();"/>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <form class="form-horizontal" name="frmAltaVehiculo" id="frmAltaVehiculo">
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>Alta de vehiculo</legend>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="txtMatricula">Matricula</label>
+                    <div class="col-xs-4">
+                        <input id="txtMatricula" name="txtMatricula" placeholder="Codigo" class="form-control input-md" type="text">
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="txtMarca">Marca</label>
+                    <div class="col-xs-4">
+                        <input id="txtMarca" name="txtMarca" placeholder="Marca" class="form-control input-md" type="text">
+                    </div>
+                </div>
+
+               <!-- Text input-->
+               <div class="form-group">
+                    <label class="col-xs-4 control-label" for="txtModelo">Modelo</label>
+                    <div class="col-xs-4">
+                        <input id="txtModelo" name="txtModelo" placeholder="Modelo" class="form-control input-md" type="text">
+                    </div>
+                </div>
+
+                 <!-- Multiple Radios -->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="rbtMoto">Moto</label>
+                    <div class="col-xs-4">
+                        <div class="radio">
+                            <input name="rbtMoto" id="rbtMoto-C" value="ciclomotor" checked="checked" type="radio">
+                            <label for="rbtMoto-C">Ciclomotor</label>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Multiple Radios -->
+                 <div class="form-group">
+                    <label class="col-xs-4 control-label" for="rbtCoche">Coche</label>
+                    <div class="col-xs-4">
+                        <div class="radio">
+                            <input name="rbtCoche" id="rbtCoche-C" value="combustible" checked="checked" type="radio">
+                            <label for="rbtCoche-C">Combustible</label>
+                        </div>
+                        <div class="radio">
+                            <input name="rbtCoche" id="rbtCoche-P" value="plazas" checked="checked" type="radio">
+                            <label for="rbtCoche-P">Plazas</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- Input Button -->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="btnAceptarAltaVehiculo"></label>
+                    <div class="col-xs-4">
+                        <input type="button" id="btnAceptarAltaVehiculo" name="btnAceptarAltaVehiculo" class="btn btn-primary" value="Aceptar" onclick="aceptarAltaVehiculo();"/>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+        <form class="form-horizontal" name="frmAltaAlquiler" id="frmAltaAlquiler">
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>Listado de árboles perennes</legend>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="txtAlturaMinima">Altura mínima</label>
+                    <div class="col-xs-4">
+                        <input id="txtAlturaMinima" name="txtAlturaMinima" placeholder="Altura mínima" class="form-control input-md" type="text">
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="btnAceptarListadoPerenne"></label>
+                    <div class="col-xs-4">
+                        <input type="button" id="btnAceptarListadoPerenne" name="btnAceptarListadoPerenne" class="btn btn-primary" value="Aceptar" onclick="aceptarListadoPerennes();"/>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+        <form class="form-horizontal" name="frmListadoCaducos" id="frmListadoCaducos">
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>Listado de árboles caducos</legend>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="txtMesListado">Mes de floración</label>
+                    <div class="col-xs-4">
+                        <input id="txtMesListado" name="txtMesListado" placeholder="Mes de floración" class="form-control input-md" type="text">
+                    </div>
+                </div>
+
+                <!-- Input Button -->
+                <div class="form-group">
+                    <label class="col-xs-4 control-label" for="btnAceptarListadoCaduco"></label>
+                    <div class="col-xs-4">
+                        <input type="button" id="btnAceptarListadoCaduco" name="btnAceptarListadoCaduco" class="btn btn-primary" value="Aceptar" onclick="aceptarListadoCaducos();"/>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
 
 
 
