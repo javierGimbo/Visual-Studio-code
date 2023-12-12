@@ -57,7 +57,7 @@ class Prestamo(models.Model):
 
     estado_choices =(
         ('prestado', 'Prestado'),
-        ('devuelto', 'Devueklto'),
+        ('devuelto', 'Devuelto'),
     )
 
     estado= models.CharField(max_length=20, choices=estado_choices)
