@@ -1,4 +1,4 @@
-.btn {
+/* .btn {
     background-color:hotpink;
     padding: 30px;
     transition: all 1.0s;
@@ -45,4 +45,23 @@
 .modal-overlay.active {
  opacity: 1;
  visibility: visible;
+} */
+
+
+.modal {
+    background-color:hotpink;
+    padding: 30px;
+    transition: all 1.0s;
+    padding: 30px;
+    position: absolute;
+
+
+}
+
+.modal:hover{
+    
+    letter-spacing: 50px;
+    border-radius: 20px;
+    border: solid;
+    border-color: darkturquoise;
 }
