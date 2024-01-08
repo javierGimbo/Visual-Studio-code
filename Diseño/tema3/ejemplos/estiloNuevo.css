@@ -1,0 +1,22 @@
+h1.mb-3{
+    -webkit-transition: 1s linear;
+    transition: 1s linear;
+}
+
+
+h1.mb-3:hover{
+    -webkit-transform: rotate(360deg);
+    transform:rotate(360deg);
+    
+}
+
+h1.display-4{
+    -webkit-transition: 1s linear;
+    transition: 1s linear;
+}
+
+h1.display-4:hover{
+    -webkit-transform: scale(1.25);
+    transform: scale(1.25);
+    color:#da9f5b;
+}
