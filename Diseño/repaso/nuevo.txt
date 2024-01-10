@@ -1,0 +1,103 @@
+Derecho de Propiedad Intelectual
+
+Los derechos cubiertos bajo la Propiedad Intelectual cubre:
+● Derechos morales: son irrenunciables y acompañan al autor y a sus
+herederos durante toda su vida como el derecho al reconocimiento.
+● Derechos de carácter económico: Relacionados con la explotación de la
+obra (prohibiendo su explotación por parte de terceros o exigiendo una
+remuneración por esta explotación)
+● Derechos compensatorios: Relacionados con la copia privada de la obra.
+El autor recibe una compensación por los derechos de propiedad
+intelectual dejados de percibir por la reproducción privada de la obra
+
+Derecho de Autor
+
+Para la Organización Mundial de la Propiedad Intelectual (OMPI), la propiedad
+intelectual abarca dos ramas:
+● La propiedad industrial (patentes, diseños industriales, marcas de
+comercio, etc.)
+● El derecho de autor (creaciones artísticas como libros, obras musicales,
+pinturas, esculturas, películas y obras realizadas por medios tecnológicos
+como los programas informáticos y las bases de datos)
+
+Licencias
+
+Existen otras formas para articular estas licencias basadas en la cesión de ciertos
+derechos a quien adquiere la copia:
+● Copyleft: Licencia impulsada por GNU que se basa en la cesión de todos los
+derechos de explotación e impone la limitación de que las obras derivadas
+mantengan la misma licencia
+● Creative Commons: Son un conjunto de licencias algo más conservadoras que la
+anterior. Tienen varios enunciados que combinan la cesión de ciertos derechos
+(en lugar de todos)
+● Coloriuris: es un sistema internacional de gestión y cesión de derechos de autor,
+con validez legal mundial y con efectos legales de registro en 25 países que
+garantiza, a través de un contrato legalmente celebrado entre dos partes, que, de
+darse una indebida utilización de los contenidos objeto de la cesión de forma
+contraria a la que ha dispuesto, su titular tendrá una herramienta jurídica que
+podrá esgrimir ante los tribunales contra el infractor. 
+
+
+
+ <audio controls autoplay>
+     <source src="./Background Music! Coffee Lounge by Oleg Kirilkov.mp3">
+    <source src="./Alyssa Light - Vine.mp3">
+    El navegador no puede reproducir el audio
+</audio>
+
+
+ <picture>
+    <source media="(max-width: 576px)" srcset="img/Granos.jpg">
+    <source media="(min-width: 992px)" srcset="img/SacoCafe.jpg">
+    <img class="img-fluid mb-3 mb-sm-0" src="img/TazaCafe.jpg" alt="">
+</picture>
+
+
+
+<video class="videoMovil" width="180" height="380" controls preload>       
+    <source src="./img/cafeVideo.mp4" type="video/mp4";
+    codecs="avc1,mp4a">
+</video>
+
+<video width="560" height="315" controls>
+        <source src="https://www.youtube.com/embed/TU_ID_DE_YOUTUBE" type="video/youtube">
+        Tu navegador no soporta el tag de video.
+    </video>
+
+
+
+
+#ej1 {
+    background-image: url(https://educacionadistancia.juntadeandalucia.es/centros/sevilla/pluginfile.php/1158582/mod_resource/content/imagenes/nubes.jpg);
+    animarion:fondoAnimado 10s linear infinite
+}
+
+
+@keyframes fondoAnimado{
+    from{
+        background-position: 0 0;
+    }
+    to{
+        background-position: 100% 0;
+    }
+}
+
+
+#ironman {
+    animation: ironman 10s infinite;
+}
+
+@keyframes ironman {
+    25% {
+        transform: rotate(135deg);
+    }
+    50% {
+        transform: translate(50vw, 200px);
+    }
+    75% {
+        transform: rotate(0deg) translate(50vw, 250px);
+    }
+    100% {
+        transform: scale(3) translateY(-500px);
+    }
+}
