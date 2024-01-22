@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 13</title>
+  </head>
+  <body>
+    <h1>Validación de formularios con expresiones regulares</h1>
+    <form action="formularioProcesado13.html" name="formulario">
+      <label>Apellidos: </label>
+      <input type="text" name="apellidos" required pattern="[A-ZÑÁÉÍÓÚ][a-zñáéíóú]*"/>
+      <br />
+      <label>Nombre: </label>
+      <input type="text" name="nombre" required pattern="[A-ZÑÁÉÍÓÚ][a-zñáéíóú]*"/>
+      <br />
+      <label>Fecha de nacimiento: </label>
+      <input type="text" name="fechaNacimiento" placeholder="DD/MM/AAAA" pattern="\d{2}\/\d{2}\/\d{4}"/>
+      <br />
+      <label>DNI: </label>
+      <input type="text" name="dni" required/ pattern="\d{7,8}[A-Z]">
+      <br />
+      <label>Correo electrónico: </label>
+      <input type="text" name="email" required/ pattern="[a-z\.-_]\@[a-z\.-_]\.\{2,4}[a-z]">
+      <br />
+      <label>Usuario IDEA: </label>
+      <input type="text" name="usuario" required/> 
+      <br />
+      <label>Teléfono: </label>
+      <input type="text" name="telefono" required/ pattern="^[6-9]\d{8}$">
+      <br />
+      <label>Usuario de Twitter: </label>
+      <input type="text" name="twitter" required/ pattern="@[a-z]{4,15}">
+      <br />
+      <input type="submit" name="submit" value="Procesar Formulario" />
+    </form>
+  </body>
+</html>

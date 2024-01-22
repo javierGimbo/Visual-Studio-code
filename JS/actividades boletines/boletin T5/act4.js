@@ -47,4 +47,3 @@ function pasarIzquierda() {
 }
 
 
-prueba de git 2
