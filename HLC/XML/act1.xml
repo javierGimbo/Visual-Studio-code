@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE empresa SYSTEM "empresa.dtd">
+<?xml-stylesheet type="text/css" href="act1.css"?>
+<empresa>
+    <empleado>
+        <departamento>Desarrollo</departamento>
+        <nombre>Victor</nombre>
+        <apellidos>Luna</apellidos>
+        <cargo>Programador</cargo>
+        <tlfn_movil>123-456-7890</tlfn_movil>
+        <tlfn_fijo>987-654-3210</tlfn_fijo>
+    </empleado>
+
+    <empleado>
+        <departamento>RRHH</departamento>
+        <nombre>Jude</nombre>
+        <apellidos>Bellingham</apellidos>
+        <cargo>Reclutadora</cargo>
+        <tlfn_movil>234-567-8901</tlfn_movil>
+    </empleado>
+
+    <empleado>
+        <departamento>Finanzas</departamento>
+        <nombre>Carlo</nombre>
+        <apellidos>Ancelotti </apellidos>
+        <cargo>Contador</cargo>
+        <tlfn_movil>345-678-9012</tlfn_movil>
+        <tlfn_fijo>765-432-1098</tlfn_fijo>
+    </empleado>
+</empresa>

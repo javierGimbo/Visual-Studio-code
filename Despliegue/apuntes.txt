@@ -1,0 +1,18 @@
+Clase C= x. x. x. __ /24
+
+Clase B = x. x. __. __/16
+
+Clase A = x. __. __. __/8
+
+
+
+*ejercicio*
+198.168.1.0/24      4 subredes
+
+
+clase C
+bits para subredes = 2²=4
+mascara = 26bits
+bits para host=6
+hosts totales = 2⁶=64
+host utilizables 2⁶-2 (por identificador de red, broadcast)

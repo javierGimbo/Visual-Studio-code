@@ -1,0 +1,32 @@
+*{
+    display: block;
+}
+
+empleado{
+    margin-top: 20px;
+    margin-right: 75%;
+    margin-left: 20px;
+    border: 1px black solid;
+    height: auto;
+}
+departamento{
+    margin-top: 10px;
+    margin-left: 25px;
+    text-align: right;
+    font-weight: bold;
+    background-color: black;
+    color:white;
+}
+nombre, apellidos{
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+nombre{
+    margin-left: 50px;
+}
+
+cargo,tlfn_movil, tlfn_fijo{
+    margin-left: 70px;
+}
