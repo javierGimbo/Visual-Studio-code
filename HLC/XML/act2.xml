@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE empresa SYSTEM "empresa.dtd">
+<personas>
+    <persona id="1">
+        <nombre>Juan</nombre>
+        <apellido1>Pérez</apellido1>
+        <apellido2>Gómez</apellido2>
+        <genero valor="masculino"/>
+        <telefono>123456789</telefono>
+        <telefono>987654321</telefono>
+        <correo>juan.perez@gmail.com</correo>
+        <correo>juan.perez2@gmail.com</correo>
+    </persona>
+    <persona id="2">
+        <nombre>Laura</nombre>
+        <apellido1>González</apellido1>
+        <genero valor="femenino"/>
+        <telefono>111222333</telefono>
+        <correo>laura.gonzalez@gmail.com</correo>
+    </persona>
+
+    <persona id="3">
+        <nombre>Carlos</nombre>
+        <apellido1>Jiménez</apellido1>
+        <genero valor="masculino"/>
+        <telefono>555666777</telefono>
+        <correo>carlos@gmail.com</correo>
+    </persona>
+</personas>
