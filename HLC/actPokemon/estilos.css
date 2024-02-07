@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #661bac;
+}
+
+label {
+    display: block;
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    padding: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #661bac;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #661bac;
+}
+
+
+.pokemon-info img {
+    max-width: 200px;
+    margin-bottom: 10px;
+}
+
+.pokemon-info p {
+    margin: 5px 0;
+}
