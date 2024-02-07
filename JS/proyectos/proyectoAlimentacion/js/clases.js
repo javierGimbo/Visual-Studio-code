@@ -108,7 +108,7 @@ class Gestor{
         this._clientes = [[]];
         this._comercialActual = comercialActual;
         this._clienteActual = clienteActual;
-        this._pedidos = [[[]]];
+        this._pedidos = [];
     }
 
     get comercialActual() {

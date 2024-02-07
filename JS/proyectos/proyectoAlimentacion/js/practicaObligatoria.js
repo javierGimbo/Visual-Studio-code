@@ -131,3 +131,58 @@ function cargarCategoria(){
   });
 }
 
+// Funcion para que segun el select de categoria se pongan los productos
+function cargarProductos(){
+  const productosSelect = document.querySelector("select[name='categorias']");
+
+}
+
+
+
+
+
+
+
+
+
+// Ahora categoriasProductos contendrá un objeto donde las claves son las categorías y los valores son arrays de productos correspondientes a cada categoría
+
+
+// // Funcion para cargar las categorias y los productos al seleccionar una categoría
+// function cargarCategoriaYProductos() {
+//   const categoriasSelect = document.querySelector("select[name='categorias']");
+//   const productosSelect = document.querySelector("select[name='productos']");
+
+//   const categoriasProductos = {
+//     "Aceite": ["Aceite Oliva Virgen Extra 1l (Caja 20)", "Aceite Oliva Virgen Extra 700ml (Caja 30)", "Aceite Oliva Virgen Extra 5l (Caja 6)", "Aceite Oliva 1l (Caja 20)"],
+//     "Encurtidos": ["Aceituna Gordal 340gr (Caja de 50)", "Aceituna Gordal deshuesada 350gr (Caja de 50)", "Aceituna Manzanilla 250 gr (Caja de 50)", "Aceituna Manzanilla deshuesada 250 gr (Caja de 50)", "Aceituna Negra 350gr (Caja de 50)", "Aceituna Negra deshuesada 350gr (Caja de 50)"],
+//     "Salsas": ["Mayonesa 350gr (Caja de 50)", "Mayonesa 1Kg (Caja de 30)", "Salsa Cocktail 350gr (Caja de 50)", "Salsa Gaucha 350gr (Caja de 50)", "Salsa Alioli 350 gr (Caja de 50)", "Salsa Barbacoa 500gr (Caja de 30)"]
+//   };
+
+//   categoriasSelect.addEventListener('change', function() {
+//     const categoriaSeleccionada = this.value;
+
+//     // Limpiar select de productos
+//     productosSelect.innerHTML = '';
+
+//     // Obtener los productos de la categoría seleccionada
+//     const productosCategoria = categoriasProductos[categoriaSeleccionada];
+
+//     // Agregar opciones de productos al select
+//     productosCategoria.forEach(producto => {
+//       const option = document.createElement("option");
+//       option.value = producto;
+//       option.textContent = producto;
+//       productosSelect.appendChild(option);
+//     });
+//   });
+
+
+// }
+
+// // Llamar a la función para cargar las categorías y los productos
+// cargarCategoriaYProductos();
+
+
+// // Llamar a la función para cargar las categorías y los productos
+// cargarCategoriaYProductos();
