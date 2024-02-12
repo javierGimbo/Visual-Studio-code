@@ -53,3 +53,4 @@ function resetearCrono() {
   dec = 0;
   imprimirCrono();
 }
+//prueba
