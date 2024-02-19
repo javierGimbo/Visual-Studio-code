@@ -1,5 +1,5 @@
-// App.js
 import React, { useState } from 'react';
+import md5 from 'md5';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -13,8 +13,7 @@ function App() {
     if (searchTerm.trim() === '') return;
 
     const timestamp = new Date().getTime().toString();
-    // eslint-disable-next-line no-undef
-    const hash = md5(`${timestamp}${privateKey}${publicKey}`);
+    const hash = generateHash(timestamp);
 
     const url = `https://gateway.marvel.com/v1/public/characters?name=${searchTerm}&apikey=${publicKey}&ts=${timestamp}&hash=${hash}`;
 
@@ -23,11 +22,20 @@ function App() {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      setSearchResult(data.data.results[0]);
-      setSearchHistory([...searchHistory, data.data.results[0]]);
+      if (data && data.data && data.data.results && data.data.results.length > 0) {
+        setSearchResult(data.data.results[0]);
+        setSearchHistory([...searchHistory, data.data.results[0]]);
+      } else {
+        console.log('No se encontraron resultados.');
+      }
     } catch (error) {
       console.error('Error searching:', error);
     }
+  };
+
+  const generateHash = (timestamp) => {
+    const preHash = timestamp + privateKey + publicKey;
+    return md5(preHash);
   };
 
   const handleClearHistory = () => {
@@ -36,23 +44,24 @@ function App() {
 
   return (
     <div>
-      <h1>Marvel Explorer</h1>
+      <h1>Marvel</h1>
       <input
         type="text"
         placeholder="Search for a character or comic"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <button onClick={handleSearch}>Search</button>
-      <button onClick={handleClearHistory}>Clear History</button>
+      <button onClick={handleSearch}>Buscar</button>
+      <button onClick={handleClearHistory}>Borrar historial</button>
       {searchResult && (
         <div>
-          <h2>{searchResult.name}</h2>
+          <h1>{searchResult.name}</h1>
           <p>ID: {searchResult.id}</p>
-          <p>Biography: {searchResult.description || 'N/A'}</p>
+          <p>Biografía: {searchResult.description || 'N/A'}</p>
+          <img src={`${searchResult.thumbnail.path}.${searchResult.thumbnail.extension}`} alt={searchResult.name} />
         </div>
       )}
-      <h2>Search History</h2>
+      <h2>Historial de busqueda</h2>
       <ul>
         {searchHistory.map((item, index) => (
           <li key={index}>{item.name}</li>
