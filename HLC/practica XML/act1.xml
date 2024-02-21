@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portes>
+    <recepcion>
+        <producto>Manzanas</producto>
+        <cantidad>100</cantidad>
+        <codigoreceptor>123-ABC</codigoreceptor>
+    </recepcion>
+    <entrega receptor="Cliente1">
+        <transportista>T2</transportista>
+        <distancia unidad="kilometros">50</distancia>
+        <coste>500</coste>
+    </entrega>
+    <recepcion>
+        <producto>Peras</producto>
+        <cantidad>50</cantidad>
+    </recepcion>
+    <entrega receptor="Cliente2">
+        <transportista>T3</transportista>
+        <distancia unidad="millas">30</distancia>
+        <coste>300</coste>
+    </entrega>
+</portes>
