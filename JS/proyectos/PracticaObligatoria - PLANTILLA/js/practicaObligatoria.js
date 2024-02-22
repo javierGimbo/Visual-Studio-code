@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Función para borrar una categoría
-    function borrarCategoria(nombreCategoria) {
+    function borrarCategoria(nombreCategoria) 
         fetch(`https://proyectocliente-b4fc3-default-rtdb.europe-west1.firebasedatabase.app/categorias/${nombreCategoria}.json`, {
             method: "DELETE"
             

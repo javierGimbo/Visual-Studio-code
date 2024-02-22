@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concesionario [
+    <!ELEMENT concesionario (coche*)>
+    <!ELEMENT coche (marca, modelo, cilindrada, combustible, precio, anno?, color, interesados*, fecha_limite?)>
+    <!ATTLIST concesionario provincia CDATA #REQUIRED>
+    <!ELEMENT marca (#PCDATA)>
+    <!ELEMENT modelo (#PCDATA)>
+    <!ELEMENT cilindrada (#PCDATA)>
+    <!ELEMENT combustible (#PCDATA)>
+    <!ELEMENT precio (#PCDATA)>
+    <!ELEMENT anno (#PCDATA)>
+    <!ELEMENT color (#PCDATA)>
+    <!ELEMENT interesados (#PCDATA)>
+    <!ELEMENT fecha_limite EMPTY>
+    <!ATTLIST coche matricula CDATA #REQUIRED>
+    <!ATTLIST fecha_limite fecha CDATA #IMPLIED>
+]>
+<concesionario provincia="Sevilla">
+    <coche matricula="1111XXX">
+        <marca>Renualt</marca>
+        <modelo>Clio</modelo>
+        <cilindrada>2000</cilindrada>
+        <combustible>Gasolina</combustible>
+        <precio>15000</precio>
+        <anno>2021</anno>
+        <color>Naranja</color>
+        <interesados>132456789A</interesados>
+        <fecha_limite fecha="22-02-2024"/>
+    </coche>
+    <coche matricula="2222XXX">
+        <marca>BMW</marca>
+        <modelo>XXX</modelo>
+        <cilindrada>2000</cilindrada>
+        <combustible>Diesel</combustible>
+        <precio>18000</precio>
+        <color>Negro</color>
+        <interesados>123456789B</interesados>
+    </coche>
+</concesionario>
