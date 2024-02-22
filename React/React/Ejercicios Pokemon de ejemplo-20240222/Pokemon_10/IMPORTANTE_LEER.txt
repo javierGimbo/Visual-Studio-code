@@ -1,0 +1,9 @@
+Para este trabajo se ha utilizado mui de REACT. 
+
+En concreto:
+
+- Material general --> Es necesario instalar : npm install @mui/material @emotion/react @emotion/styled
+
+- Material para icon --> Es necesario utilizar : npm install @mui/icons-material
+
+

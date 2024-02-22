@@ -1,0 +1,17 @@
+
+.carta {
+    margin: auto;
+    display: table;
+}
+
+.img {
+    width: 50%;
+}
+
+.header {
+    background-color: #B22222;
+}
+
+.impar {
+    background-color: #F08080;
+}

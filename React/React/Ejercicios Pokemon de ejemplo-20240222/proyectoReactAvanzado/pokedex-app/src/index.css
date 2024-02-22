@@ -5,20 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url(../fotos/plain-black-avengers-logo-95xe7arj9moi9yoc.jpg);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-    
-}
-
-
-.titulo{
-  color: rgb(223, 9, 9);
-}
-
-.nombre{
-  color: rgb(223, 9, 9);
 }

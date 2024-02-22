@@ -1,0 +1,23 @@
+.formulario {
+    background-color: #FFF5AA;
+    display: table;
+    padding: 1%;
+    border-radius: 30px;
+    margin: auto;
+}
+
+.txtField {
+    margin: 5%;
+}
+
+#botonBuscar {
+    margin: 1%;
+}
+
+#botonEliminar {
+    margin: 1%;
+}
+
+.cartas {
+    margin: auto;
+}

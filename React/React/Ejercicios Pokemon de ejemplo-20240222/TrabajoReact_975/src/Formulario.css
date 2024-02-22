@@ -1,0 +1,19 @@
+body {
+ background-image: url('Imagenes/wallpaperbetter.jpg');
+ background-repeat: no-repeat;
+ background-attachment: fixed;
+ background-size: auto;
+}
+
+.cartas{
+    justify-items: center;
+}
+
+.contenidoCartas{
+
+    background-color: aquamarine;
+}
+
+.botones{
+    margin-top: 2%;
+}
