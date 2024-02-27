@@ -1,4 +1,6 @@
+const selectCategorias = document.querySelector("select[name='categorias']");
 document.addEventListener("DOMContentLoaded", function() {
+
     const comercialesSelect = document.querySelector("select[name='comerciales']");
     fetch("https://proyectocliente-b4fc3-default-rtdb.europe-west1.firebasedatabase.app/comerciales.json")
         .then(response => response.json())
@@ -28,7 +30,48 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .catch(error => console.error('Error al obtener datos de la API:', error));
 
-    
+    // Funcion para cargar los productos
+    const productosSelect = document.querySelector("select[name='productos']");
+    fetch("https://proyectocliente-b4fc3-default-rtdb.europe-west1.firebasedatabase.app/productos.json")
+        .then(response => response.json())
+        .then(productos => {
+            productosSelect.innerHTML = ""; // Limpiar el select antes de agregar nuevas opciones
+            for (const key in productos) {
+                const option = document.createElement("option");
+                option.value = key;
+                option.textContent = productos[key];
+                productosSelect.appendChild(option);
+            }
+        })
+        .catch(error => console.error('Error al obtener datos de la API:', error));
+
+        const selectProductos = frmControles.querySelector('select[name="productos"]');
+        document.addEventListener("DOMContentLoaded", atacarAPIProductos);
+        selectCategorias.addEventListener("change", atacarAPIProductos);
+
+        function atacarAPIProductos() {
+            fetch('https://proyectocliente-b4fc3-default-rtdb.europe-west1.firebasedatabase.app/productos.json')
+              .then((response) => response.json())
+              .then(generarComboProductos)
+              .catch(console.log);
+        }
+
+        function generarComboProductos(productos) {
+            const categoriaSeleccionada = selectCategorias.selectedIndex; // Obtengo el índice de la categoría seleccionada
+        
+            selectProductos.innerHTML = '';
+        
+            for (let key in productos) {
+                const producto = productos[key];
+                if (producto.idCategoria === categoriaSeleccionada) {
+                    const option = document.createElement('option');
+                    option.value = key;
+                    option.textContent = producto.nombreProducto;
+                    selectProductos.add(option);
+                }
+            }
+        }
+
     // Función para cargar las categorias
     function cargarCategorias() {
         fetch("https://proyectocliente-b4fc3-default-rtdb.europe-west1.firebasedatabase.app/categorias.json")
@@ -44,6 +87,9 @@ document.addEventListener("DOMContentLoaded", function() {
             })
             .catch(error => console.error('Error al obtener datos de la API:', error));
     }
+
+
+    
 
     //CRUD categorías
     const formularioNuevaCategoria = document.getElementById("frmNuevaCategoria");
@@ -140,39 +186,10 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => console.error('Error al obtener datos de la API:', error));
     }
 
-   
-// Función para actualizar el nombre de una categoría
-/* const formularioActualizarCategoria = document.getElementById("frmActualizarCategoria");
-formularioActualizarCategoria.addEventListener("submit", actualizarCategoria);
-function actualizarCategoria(event) {
-    event.preventDefault();
-    const categoriaAnterior = document.getElementById("txtActualizarCategoria").value.trim();
-    const nuevaCategoria = document.getElementById("txtCategoriaActualizada").value.trim();
     
-    if (categoriaAnterior === "" || nuevaCategoria === "") {
-        console.error("Por favor, ingresa la categoría anterior y la nueva categoría.");
-        return;
-    }
-    
-    const apiRest = "https://proyectocliente-b4fc3-default-rtdb.europe-west1.firebasedatabase.app/";
-    const fichero = "categorias/";
-    const url = apiRest + fichero + categoriaAnterior + ".json";
 
-    fetch(url, {
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json;charset=utf-8",
-        },
-        body: JSON.stringify({ categorias: nuevaCategoria }),
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("No se pudo actualizar la categoría.");
-        }
-        cargarCategorias(); // Recargar las categorías después de una actualización exitosa
-    })
-    .catch(error => console.error('Error al actualizar categoría:', error));
-} */
+   
+
 const frmActualizarCategoria = document.getElementById('frmActualizarCategoria');
 frmActualizarCategoria.addEventListener("submit", actualizarCategoria);
 
@@ -229,6 +246,6 @@ function actualizarCategoria(event) {
         .catch(error => console.error('Error al obtener datos de la API:', error));
 }
 
-
+atacarAPIProductos();
 
 });
