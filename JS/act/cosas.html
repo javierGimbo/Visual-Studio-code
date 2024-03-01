@@ -1,0 +1,770 @@
+/SELECCIONO LOS COMPONENTES DEL HTML QUE NECESITARE
+
+const frmComercial = document.getElementById('frmComercial');
+const selectComerciales =
+frmComercial.querySelector('select[name="comerciales"]');
+
+const frmControles = document.getElementById('frmControles');
+const selectCategorias =
+frmControles.querySelector('select[name="categorias"]');
+const selectProductos = frmControles.querySelector('select[name="productos"]');
+
+const frmBorrarComercial = document.getElementById('frmBorrarComercial');
+const selectBorrarComercial =
+frmBorrarComercial.querySelector('select[name="comercialesBorrar"]');
+
+const frmActualizarComercial =
+document.getElementById('frmActualizarComercial');
+const selectActualizarComercial =
+frmActualizarComercial.querySelector('select[name="comercialesActualizar"]');
+
+const frmBorrarProducto = document.getElementById('frmBorrarProducto');
+const selectBorrarProducto =
+frmBorrarProducto.querySelector('select[name="productosBorrar"]')
+
+const frmActualizarProducto = document.getElementById('frmActualizarProducto');
+const selectActualizarProducto =
+frmActualizarProducto.querySelector('select[name="productosActualizar"]')
+
+const divClientes = document.getElementById('clientes');
+
+//EVENTOS CRUD CATEGORIA
+
+const frmNuevaCategoria = document.getElementById('frmNuevaCategoria');
+frmNuevaCategoria.addEventListener("submit", insertarCategoria);
+
+const frmBorrarCategoria = document.getElementById('frmBorrarCategoria');
+frmBorrarCategoria.addEventListener("submit", eliminarCategoria);
+
+const frmActualizarCategoria =
+document.getElementById('frmActualizarCategoria');
+frmActualizarCategoria.addEventListener("submit", actualizarCategoria);
+
+const frmBorrarCliente = document.getElementById('frmBorrarCliente');
+frmBorrarCliente.addEventListener("submit", eliminarCliente);
+
+const frmActualizarCliente = document.getElementById('frmActualizarCliente');
+frmActualizarCliente.addEventListener("submit", actualizarCliente);
+
+//EVENTOS CRUD COMERCIALES
+
+const frmNuevoComercial = document.getElementById('frmNuevoComercial');
+frmNuevoComercial.addEventListener("submit", insertarComercial);
+
+frmBorrarComercial.addEventListener("submit", eliminarComercial);
+
+frmActualizarComercial.addEventListener("submit", actualizarComercial);
+
+//EVENTOS CRUD PRODUCTO
+
+const frmNuevoProducto = document.getElementById('frmNuevoProducto');
+frmNuevoProducto.addEventListener("submit", insertarProducto);
+
+frmBorrarProducto.addEventListener("submit", eliminarProducto);
+
+frmActualizarProducto.addEventListener("submit", actualizarProducto);
+
+//EVENTOS CRUD CLIENTES
+
+const frmNuevoCliente = document.getElementById('frmNuevoCliente');
+frmNuevoCliente.addEventListener("submit", insertarCliente);
+
+//EVENTOS MANEJO HTML
+
+const botonCRUDCategorias = document.getElementById('btnGestionCategorias');
+botonCRUDCategorias.addEventListener("click", ocultarYmostrarCategorias);
+
+const botonCRUDComerciales = document.getElementById('btnGestionComerciales');
+botonCRUDComerciales.addEventListener("click", ocultarYmostrarComerciales);
+
+const botonCRUDProductos = document.getElementById('btnGestionProductos');
+botonCRUDProductos.addEventListener("click", ocultarYmostrarProductos);
+
+const botonCRUDClientes = document.getElementById('btnGestionClientes');
+botonCRUDClientes.addEventListener("click", ocultarYmostrarClientes);
+
+
+//AÑADO LOS EVENTOS QUE NECESITE
+
+document.addEventListener("DOMContentLoaded", atacarAPIComerciales);
+document.addEventListener("DOMContentLoaded", atacarAPICategorias);
+document.addEventListener("DOMContentLoaded", atacarAPIProductos);
+document.addEventListener("DOMContentLoaded", atacarAPIClientes);
+selectCategorias.addEventListener("change", atacarAPIProductos);
+selectComerciales.addEventListener("change", atacarAPIClientes);
+
+
+//URLS DE MI API
+const urlAPI = 'https://practicajsapi-default-rtdb.europe-west1.firebasedatabase.app/';
+const urlCategorias =
+'https://practicajsapi-default-rtdb.europe-west1.firebasedatabase.app/categorias.json';
+const urlComerciales =
+'https://practicajsapi-default-rtdb.europe-west1.firebasedatabase.app/comerciales.json';
+const urlProductos =
+'https://practicajsapi-default-rtdb.europe-west1.firebasedatabase.app/productos.json';
+
+
+
+//ATACO A LA API
+
+function atacarAPIComerciales() {
+fetch('https://practicajsapi-default-rtdb.europe-west1.firebasedatabase.app/comerciales.json')
+.then((response) => response.json())
+.then(generarComboComerciales)
+.catch(console.log);
+}
+
+function atacarAPICategorias() {
+fetch('https://practicajsapi-default-rtdb.europe-west1.firebasedatabase.app/categorias.json')
+.then((response) => response.json())
+.then(generarComboCategorias)
+.catch(console.log);
+}
+
+function atacarAPIProductos() {
+fetch('https://practicajsapi-default-rtdb.europe-west1.firebasedatabase.app/productos.json')
+.then((response) => response.json())
+.then(generarComboProductos)
+.catch(console.log);
+}
+
+function atacarAPIClientes() {
+fetch('https://practicajsapi-default-rtdb.europe-west1.firebasedatabase.app/clientes.json')
+.then((response) => response.json())
+.then(cargarClientesComerciales)
+.catch(console.log);
+}
+
+
+//FUNCIONES DE CARGAR COMBOS
+
+function generarComboComerciales(comerciales) {
+
+selectComerciales.innerHTML = '';
+selectBorrarComercial.innerHTML = '';
+selectActualizarComercial.innerHTML = '';
+
+for(let comercial in comerciales){
+const option = document.createElement('option');
+option.text = comerciales[comercial];
+selectComerciales.add(option);
+}
+
+for(let comercial in comerciales){
+const option = document.createElement('option');
+option.text = comerciales[comercial];
+selectBorrarComercial.add(option);
+}
+
+for(let comercial in comerciales){
+const option = document.createElement('option');
+option.text = comerciales[comercial];
+selectActualizarComercial.add(option);
+}
+}
+
+function generarComboCategorias(categorias) {
+
+selectCategorias.innerHTML = '';
+
+for(let categoria in categorias){
+const option = document.createElement('option');
+option.text = categorias[categoria];
+selectCategorias.add(option);
+}
+}
+
+function generarComboProductos(productos) {
+const categoriaSeleccionada = selectCategorias.selectedIndex; //
+Obtengo el índice de la categoría seleccionada
+
+selectProductos.innerHTML = '';
+selectBorrarProducto.innerHTML = '';
+selectActualizarProducto.innerHTML = '';
+
+for (let key in productos) {
+const producto = productos[key];
+if (producto.idCategoria === categoriaSeleccionada) {
+const option = document.createElement('option');
+option.text = producto.nombreProducto;
+selectProductos.add(option);
+}
+}
+
+for (let key in productos) {
+const producto = productos[key];
+if (producto.idCategoria === categoriaSeleccionada) {
+const option = document.createElement('option');
+option.text = producto.nombreProducto;
+selectBorrarProducto.add(option);
+}
+}
+
+for (let key in productos) {
+const producto = productos[key];
+if (producto.idCategoria === categoriaSeleccionada) {
+const option = document.createElement('option');
+option.text = producto.nombreProducto;
+selectActualizarProducto.add(option);
+}
+}
+}
+
+//FUNCION PARA CARGAR LOS CLIENTES DE LOS COMERCIALES
+
+function cargarClientesComerciales(clientes) {
+
+borrarDiv();
+
+const indiceSeleccionado = selectComerciales.selectedIndex;
+const claveComercial = Object.keys(clientes)[indiceSeleccionado];
+const clientesComercial = clientes[claveComercial];
+
+// Iteramos sobre los clientes del comercial seleccionado y los
+agregamos al divClientes
+for (let cliente in clientesComercial) {
+const nombreCliente = clientesComercial[cliente];
+const p = document.createElement('div');
+p.textContent = nombreCliente;
+p.classList.add("cliente");
+p.classList.add("pagado");
+divClientes.appendChild(p);
+}
+}
+
+
+
+// ---------------------------------- CRUDS ----------------------------------
+
+
+
+//CRUD CATEGORIA
+
+function insertarCategoria(event){
+const categoria = frmNuevaCategoria.txtNuevaCategoria.value.trim();
+
+event.preventDefault();
+
+fetch(urlCategorias, {
+method: "POST",
+headers: {
+"Content-Type": "application/json;charset=utf-8",
+},
+body: JSON.stringify(categoria),
+})
+
+.then((res) => res.json())
+.then(console.log);
+setTimeout(atacarAPICategorias, 200);
+
+frmNuevaCategoria.txtNuevaCategoria.value = '';
+}
+
+function eliminarCategoria(event) {
+event.preventDefault();
+
+fetch('https://practicajsapi-default-rtdb.europe-west1.firebasedatabase.app/categorias.json')
+.then((response) => response.json())
+.then(data => {
+const categoriasRecuperadas = data;
+console.log(categoriasRecuperadas);
+
+const categoria = frmBorrarCategoria.txtBorrarCategoria.value.trim();
+//Para acceder a la categoria, necesito borrarla por la KEY
+const categoriasKeys = Object.keys(categoriasRecuperadas); //De esta
+manera, obtengo todas las KEY de categorías y busco
+let categoriaKey = null; //por sus valores, cuando coinciden, obtengo dicha KEY
+for (const key of categoriasKeys) {
+if (categoriasRecuperadas[key] === categoria) {
+categoriaKey = key;
+console.log(categoriaKey);
+break;
+}
+}
+
+const fichero = 'categorias/';
+const url = urlAPI + fichero + categoriaKey + '.json';
+
+fetch(url, {
+method: 'DELETE',
+})
+.then((res) => res.json())
+setTimeout(atacarAPICategorias, 200);
+frmBorrarCategoria.txtBorrarCategoria.value = '';
+})
+}
+
+function actualizarCategoria(event) {
+event.preventDefault();
+
+fetch('https://practicajsapi-default-rtdb.europe-west1.firebasedatabase.app/categorias.json')
+.then((response) => response.json())
+.then(data => {
+const categoriasRecuperadas = data;
+console.log(categoriasRecuperadas);
+
+const antiguaCategoria =
+frmActualizarCategoria.txtActualizarCategoria.value.trim(); //Para
+acceder a la categoria, necesito borrarla por la KEY
+const categoriasKeys = Object.keys(categoriasRecuperadas); //De esta
+manera, obtengo todas las KEY de categorías y busco
+let categoriaKey = null; //por sus valores, cuando coinciden, obtengo dicha KEY
+for (const key of categoriasKeys) {
+if (categoriasRecuperadas[key] === antiguaCategoria) {
+categoriaKey = key;
+console.log(categoriaKey);
+break;
+}
+}
+
+const fichero = 'categorias/';
+const nuevaCategoria =
+frmActualizarCategoria.txtActualizarCategoriaNueva.value.trim();
+
+console.log(nuevaCategoria);
+console.log(antiguaCategoria);
+
+
+const url = urlAPI + fichero + '.json';
+
+console.log(url);
+
+fetch(url, {
+method: 'PATCH',
+headers: {
+"Content-Type": "application/json;charset=utf-8",
+},
+body: JSON.stringify({ [categoriaKey] : nuevaCategoria }),
+})
+.then((res) => res.json())
+setTimeout(atacarAPICategorias, 200);
+frmActualizarCategoria.txtActualizarCategoria.value = '';
+frmActualizarCategoria.txtActualizarCategoriaNueva.value = '';
+})
+}
+
+
+//CRUD COMERCIALES
+
+function insertarComercial(event){
+const comercial = frmNuevoComercial.txtNuevoComercial.value.trim();
+
+event.preventDefault();
+
+fetch(urlComerciales, {
+method: "POST",
+headers: {
+"Content-Type": "application/json;charset=utf-8",
+},
+body: JSON.stringify(comercial),
+})
+
+.then((res) => res.json())
+.then(console.log);
+setTimeout(atacarAPIComerciales, 200);
+
+frmNuevoComercial.txtNuevoComercial.value = '';
+}
+
+function eliminarComercial(event){
+event.preventDefault();
+
+fetch('https://practicajsapi-default-rtdb.europe-west1.firebasedatabase.app/comerciales.json')
+.then((response) => response.json())
+.then(data => {
+const comercialesRecuperados = data;
+
+const comercialSeleccionado = selectBorrarComercial.value;
+const comercialesKeys = Object.keys(comercialesRecuperados);
+let comercialKey = null;
+for (const key of comercialesKeys) {
+if (comercialesRecuperados[key] === comercialSeleccionado) {
+comercialKey = key;
+console.log(comercialKey);
+break;
+}
+}
+
+const fichero = 'comerciales/';
+const url = urlAPI + fichero + comercialKey + '.json';
+
+console.log(comercialSeleccionado);
+
+fetch(url, {
+method: 'DELETE',
+})
+.then((res) => res.json())
+setTimeout(atacarAPIComerciales, 200);
+})
+}
+
+function actualizarComercial(event){
+event.preventDefault();
+
+fetch('https://practicajsapi-default-rtdb.europe-west1.firebasedatabase.app/comerciales.json')
+.then((response) => response.json())
+.then(data => {
+const comercialesRecuperados = data;
+
+const comercialSeleccionado = selectActualizarComercial.value;
+const comercialesKeys = Object.keys(comercialesRecuperados);
+let comercialKey = null;
+for (const key of comercialesKeys) {
+if (comercialesRecuperados[key] === comercialSeleccionado) {
+comercialKey = key;
+console.log(comercialKey);
+break;
+}
+}
+
+const fichero = 'comerciales/';
+const nuevoComercial =
+frmActualizarComercial.txtActualizarComercialNuevo.value.trim();
+
+const url = urlAPI + fichero + '.json';
+
+console.log(url);
+
+fetch(url, {
+method: 'PATCH',
+headers: {
+"Content-Type": "application/json;charset=utf-8",
+},
+body: JSON.stringify({ [comercialKey] : nuevoComercial }),
+})
+.then((res) => res.json())
+setTimeout(atacarAPIComerciales, 200);
+frmActualizarComercial.txtActualizarComercialNuevo.value = '';
+})
+}
+
+
+//CRUD PRODUCTO
+
+function insertarProducto(event){
+const producto = frmNuevoProducto.txtNuevoProducto.value.trim();
+const idCategoria = selectCategorias.selectedIndex;
+
+event.preventDefault();
+
+fetch('https://practicajsapi-default-rtdb.europe-west1.firebasedatabase.app/productos.json')
+.then((response) => response.json())
+.then(data => {
+const productosRecuperados = data;
+const keys = Object.keys(productosRecuperados); //COMPRUEBO EL NUMERO
+DE PRODUCTOS QUE TENGO, Y PARA INSERTAR EL NUEVO
+const longitud = keys.length; //USO COMO ID, EL TOTAL DE PRODUCTOS + 1
+
+
+const nuevoProducto = {
+idCategoria: idCategoria,
+idProducto: longitud + 1,
+nombreProducto: producto,
+precioUnidad: 0,
+}
+
+fetch(urlProductos, {
+method: "POST",
+headers: {
+"Content-Type": "application/json;charset=utf-8",
+},
+body: JSON.stringify(nuevoProducto),
+})
+
+.then((res) => res.json())
+.then(console.log);
+setTimeout(atacarAPIProductos, 200);
+
+frmNuevoProducto.txtNuevoProducto.value = '';
+
+});
+}
+
+function eliminarProducto(event){
+event.preventDefault();
+
+fetch('https://practicajsapi-default-rtdb.europe-west1.firebasedatabase.app/productos.json')
+.then((response) => response.json())
+.then(data => {
+const productosRecuperados = data;
+
+const productoSeleccionado = selectBorrarProducto.value;
+console.log(productoSeleccionado);
+let productoKey = null;
+for (const key in productosRecuperados) {
+const producto = productosRecuperados[key];
+
+for (const atributo in producto) {
+if(producto[atributo] === productoSeleccionado) { //TENGO QUE RECORRER
+LOS ATRIBUTOS DE LOS OBJETOS
+productoKey = key; //BUSCANDO EL QUE COINCIDA CON EL SELECT
+break;
+}
+}
+}
+
+const fichero = 'productos/';
+const url = urlAPI + fichero + productoKey + '.json';
+
+fetch(url, {
+method: 'DELETE',
+})
+.then((res) => res.json())
+setTimeout(atacarAPIProductos, 200);
+});
+}
+
+function actualizarProducto(event){
+event.preventDefault();
+
+fetch('https://practicajsapi-default-rtdb.europe-west1.firebasedatabase.app/productos.json')
+.then((response) => response.json())
+.then(data => {
+const productosRecuperados = data;
+
+const productoSeleccionado = selectActualizarProducto.value;
+console.log(productoSeleccionado);
+let productoKey = null;
+for (const key in productosRecuperados) {
+const producto = productosRecuperados[key];
+
+for (const atributo in producto) {
+if(producto[atributo] === productoSeleccionado) { //TENGO QUE RECORRER
+LOS ATRIBUTOS DE LOS OBJETOS
+productoKey = key; //BUSCANDO EL QUE COINCIDA CON EL SELECT
+break;
+}
+}
+}
+
+const productoActualizado =
+document.getElementById('txtActualizarProductoNuevo').value.trim();
+
+const fichero = 'productos/';
+const url = urlAPI + fichero + productoKey + '.json';
+
+fetch(url, {
+method: 'PATCH',
+headers: {
+"Content-Type": "application/json;charset=utf-8",
+},
+body: JSON.stringify({ nombreProducto : productoActualizado }), //PARA
+ACTUALIZAR EL NOMBRE DEL PRODUCTO
+}) //SOLO TENEMOS QUE HACER REFERENCIA AL CAMPO
+.then((res) => res.json()) //QUE QUEREMOS ACTUALIZAR Y SU NUEVO VALOR
+setTimeout(atacarAPIProductos, 200);
+frmActualizarProducto.txtActualizarProductoNuevo.value = '';
+});
+}
+
+//CRUD CLIENTE
+
+function insertarCliente(event){
+const cliente = frmNuevoCliente.txtNuevoCliente.value.trim();
+
+event.preventDefault();
+
+fetch('https://practicajsapi-default-rtdb.europe-west1.firebasedatabase.app/clientes.json')
+.then((response) => response.json())
+.then(data => {
+const clientesRecuperados = data;
+
+const indiceSeleccionado = selectComerciales.selectedIndex;
+const claveComercial = Object.keys(clientesRecuperados)[indiceSeleccionado];
+
+//CREO UN ARRAY AUXILIAR CON LOS REGISTROS DE LA TABLA QUE TRAIGO DE LA URL
+
+const clientesComercial = clientesRecuperados[claveComercial];
+
+console.log(clientesComercial);
+
+//AÑADO EL CLIENTE AL ARRAY AUXILIAR Y CON PUT, REEMPLAZO LA ANTERIOR
+CON LA NUEVA YA MODIFICADA
+
+clientesComercial.push(cliente);
+
+const fichero = 'clientes/';
+const url = urlAPI + fichero + claveComercial + '.json';
+
+fetch(url, {
+method: 'PUT',
+headers: {
+'Content-Type': 'application/json'
+},
+body: JSON.stringify(clientesComercial)
+})
+.then((res) => res.json())
+setTimeout(atacarAPIClientes, 200);
+setTimeout(cargarClientesComerciales, 200);
+frmNuevoCliente.txtNuevoCliente.value = '';
+});
+}
+
+function eliminarCliente(event){
+event.preventDefault();
+
+fetch('https://practicajsapi-default-rtdb.europe-west1.firebasedatabase.app/clientes.json')
+.then((response) => response.json())
+.then(data => {
+const clientesRecuperados = data;
+
+const clienteSeleccionado = frmBorrarCliente.txtBorrarCliente.value.trim();
+const indiceSeleccionado = selectComerciales.selectedIndex;
+const claveComercial = Object.keys(clientesRecuperados)[indiceSeleccionado];
+const clientesComercial = clientesRecuperados[claveComercial];
+//CREO UN ARRAY AUXILIAR EN EL QUE ELIMINO EL REGISTRO SELECCIONADO
+
+const clientesSinSeleccionado = clientesComercial.filter(cliente =>
+cliente !== clienteSeleccionado);
+
+const fichero = 'clientes/';
+const url = urlAPI + fichero + claveComercial + '.json';
+
+//EN LUGAR DE USAR DELETE, SUSTITUYO EL ARRAY ANTERIOR POR EL QUE YA
+TIENE EL REGISTRO ELIMINADO
+
+fetch(url, {
+method: 'PUT',
+headers: {
+'Content-Type': 'application/json'
+},
+body: JSON.stringify(clientesSinSeleccionado)
+})
+.then((res) => res.json())
+setTimeout(atacarAPIClientes, 200);
+setTimeout(cargarClientesComerciales, 200);
+frmBorrarCliente.txtBorrarCliente.value = '';
+});
+}
+
+function actualizarCliente(event){
+event.preventDefault();
+
+fetch('https://practicajsapi-default-rtdb.europe-west1.firebasedatabase.app/clientes.json')
+.then((response) => response.json())
+.then(data => {
+const clientesRecuperados = data;
+
+const clienteParaActualizar =
+frmActualizarCliente.txtActualizarCliente.value.trim();
+const clienteActualizado =
+frmActualizarCliente.txtActualizarClienteNuevo.value.trim();
+
+const indiceSeleccionado = selectComerciales.selectedIndex;
+const claveComercial = Object.keys(clientesRecuperados)[indiceSeleccionado];
+const clientesComercial = clientesRecuperados[claveComercial];
+//CREO UN ARRAY AUXILIAR DONDE ELIMINO EL REGISTRO Y LO ACTUALIZO CON
+EL NUEVO NOMBRE QUE QUIERE EL USUARIO
+
+const clientesSinSeleccionado = clientesComercial.filter(cliente =>
+cliente !== clienteParaActualizar);
+clientesSinSeleccionado.push(clienteActualizado);
+
+const fichero = 'clientes/';
+const url = urlAPI + fichero + claveComercial + '.json';
+
+//EN LUGAR DE USAR DELETE, SUSTITUYO EL ARRAY ANTERIOR POR EL QUE YA
+TIENE EL REGISTRO ACTUALIZADO
+
+fetch(url, {
+method: 'PUT',
+headers: {
+'Content-Type': 'application/json'
+},
+body: JSON.stringify(clientesSinSeleccionado)
+})
+.then((res) => res.json())
+setTimeout(atacarAPIClientes, 200);
+setTimeout(cargarClientesComerciales, 200);
+frmActualizarCliente.txtActualizarCliente.value = '';
+frmActualizarCliente.txtActualizarClienteNuevo.value = '';
+});
+}
+
+
+
+
+
+//FUNCIONES DE BORRADO DE HTML
+
+function ocultarYmostrarCategorias() {
+// Ocultar todos los formularios excepto el de Categoría
+document.getElementById("formulariosProductos").style.visibility = "hidden";
+document.getElementById("formulariosComercial").style.visibility = "hidden";
+document.getElementById("formulariosCliente").style.visibility = "hidden";
+// Mostrar solo el formulario de Categoría
+document.getElementById("formularios").style.visibility = "visible";
+document.getElementById("frmNuevaCategoria").style.visibility = "visible";
+document.getElementById("frmBorrarCategoria").style.visibility = "visible";
+document.getElementById("frmActualizarCategoria").style.visibility = "visible";
+
+document.getElementById("formularios").style.display = "block";
+document.getElementById("formulariosProductos").style.display = "none";
+document.getElementById("formulariosComercial").style.display = "none";
+document.getElementById("formulariosCliente").style.display = "none";
+}
+
+function ocultarYmostrarProductos() {
+// Ocultar todos los formularios excepto el de Producto
+document.getElementById("formularios").style.visibility = "hidden";
+document.getElementById("formulariosComercial").style.visibility = "hidden";
+document.getElementById("formulariosCliente").style.visibility = "hidden";
+
+// Mostrar solo el formulario de Producto
+document.getElementById("frmNuevoProducto").style.visibility = "visible";
+document.getElementById("frmBorrarProducto").style.visibility = "visible";
+document.getElementById("frmActualizarProducto").style.visibility = "visible";
+document.getElementById("formulariosProductos").style.visibility = "visible";
+
+document.getElementById("formularios").style.display = "none";
+document.getElementById("formulariosProductos").style.display = "block";
+document.getElementById("formulariosComercial").style.display = "none";
+document.getElementById("formulariosCliente").style.display = "none";
+}
+
+function ocultarYmostrarComerciales() {
+// Ocultar todos los formularios excepto el de Comercial
+document.getElementById("formularios").style.visibility = "hidden";
+document.getElementById("formulariosProductos").style.visibility = "hidden";
+document.getElementById("formulariosCliente").style.visibility = "hidden";
+
+// Mostrar solo el formulario de Comercial
+document.getElementById("frmNuevoComercial").style.visibility = "visible";
+document.getElementById("frmBorrarComercial").style.visibility = "visible";
+document.getElementById("frmActualizarComercial").style.visibility = "visible";
+document.getElementById("formulariosComercial").style.visibility = "visible";
+
+document.getElementById("formularios").style.display = "none";
+document.getElementById("formulariosProductos").style.display = "none";
+document.getElementById("formulariosComercial").style.display = "block";
+document.getElementById("formulariosCliente").style.display = "none";
+}
+
+function ocultarYmostrarClientes() {
+// Ocultar todos los formularios excepto el de Cliente
+document.getElementById("formularios").style.visibility = "hidden";
+document.getElementById("formulariosProductos").style.visibility = "hidden";
+document.getElementById("formulariosComercial").style.visibility = "hidden";
+
+// Mostrar solo el formulario de Cliente
+document.getElementById("frmNuevoCliente").style.visibility = "visible";
+document.getElementById("frmBorrarCliente").style.visibility = "visible";
+document.getElementById("frmActualizarCliente").style.visibility = "visible";
+document.getElementById("formulariosCliente").style.visibility = "visible";
+
+document.getElementById("formularios").style.display = "none";
+document.getElementById("formulariosProductos").style.display = "none";
+document.getElementById("formulariosComercial").style.display = "none";
+document.getElementById("formulariosCliente").style.display = "block";
+}
+
+
+
+function borrarDiv() {
+const divClientes = document.getElementById('clientes');
+const elementosABorrar = divClientes.querySelectorAll('.cliente.pagado');
+// Eliminar los elementos seleccionados
+elementosABorrar.forEach(elemento => {
+divClientes.removeChild(elemento);
+})
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      table {
+        border-collapse: collapse;
+        text-align: center;
+      }
+
+      td {
+        border: 1px solid black;
+        padding: 3px 5px;
+      }
+
+      button {
+        margin: 3px;
+      }
+    </style>
+    <title>Examen</title>
+  </head>
+  <body>
+    <div id="salida"></div>
+    <br />
+    <button id="recuperarDatos">Recuperar Datos</button>
+    <h3>Nuevo Modulo</h3>
+    <form name="formNuevoAlumno">
+      <label>Alumnos: </label><input type="number" name="alumnos" />
+       <br />
+       <label>Curso: </label ><input type="text" name="curso" />
+       <br />
+       <label>Nombre: </label ><input type="text" name="nombre" />
+         <br />
+         <label>Profesor: </label><input type="text" name="profesor" />
+         <br />
+      <input type="submit" value="Insertar" />
+    </form>
+
+    <h3>Actualizar Registro</h3>
+    <form name="frmActualizaRegistro">
+      <label>Nombre (Firebase): </label><input type="text" name="nombreFireBase" /><br />
+      <label>Nuevo nombre: </label><input type="text" name="apellidos" /><br />
+      <input type="submit" value="Actualizar" />
+    </form>
+
+    <h3>Eliminar Registro</h3>
+    <form name="frmEliminarRegistro">
+      <label>Profesor(Firebase): </label><input type="text" name="profesorFireBase" /><br />
+      <input type="submit" value="Eliminar" />
+    </form>
+    <script src="./ejercicio1.js"></script>
+  </body>
+</html>
