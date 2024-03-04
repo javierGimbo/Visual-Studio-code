@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen EJ1</title>
+</head>
+<body>
+    <div class="panel">
+        <h1>CRUD</h1>
+        <hr />
+        <!-- EJEMPLOS DE FORMULARIOS -->
+        <div id="formularios">
+            <form id="frmNuevoLibro" name="frmNuevoLibro" style="visibility: visible">
+                <label><h4>Nuevo Autor Libro:</h4></label>
+                <input type="text" id="txtAutorLibro" /><br /><br />
+                <label><h4>Nuevo Editorial Libro:</h4></label>
+                <input type="text" id="txtEditorialLibro" /><br /><br />
+                <label><h4>Nº páginas Libro:</h4></label>
+                <input type="text" id="txtPaginasLibro" /><br /><br />
+                <label><h4>Nuevo Titulo Libro:</h4></label>
+                <input type="text" id="txtTituloLibro" /><br /><br />
+                <input type="submit" value="Guardar" />
+            </form>
+            <hr />
+            <form id="frmBorrarLibro" name="frmBorrarLibro" style="visibility: visible">
+            <label><h4>Libro a borrar (por titulo):</h4></label>
+            <input type="text" id="txtBorrarLibro" /><br /><br />
+            <input type="submit" value="Borrar" />
+            </form>
+            <hr />
+            <!--^ Modificación-->
+            <form id="frmEditarLibro" name="frmEditarLibro" style="visibility: visible">
+            <label><h4>Categoría a actualizar:</h4></label>
+            <input type="text" id="txtActualizarLibro" /><br /> 
+            <label><h4>Nuevo nombre para la categoria</h4></label>
+            <input type="text" if="nuevotxtActualizarLibro" /><br /><br />
+            <input type="submit" value="Actualizar" />
+            </form>
+        <!--//-->
+        </div>
+    </div>
+    <script src="./ejercicio1.js"></script>
+</body>
+</html>
