@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instituto [
+    <!ELEMENT instituto (instituto*) > 
+    <!ATTLIST instituto nombre CDATA #REQUIRED>
+    <!ATTLIST instituto annoFundacion CDATA #IMPLIED >
+    <!ELEMENT profesore (nombreProfe, asignatura+, genero)>
+    <!ELEMENT nombreProfe (#PCDATA)>
+    <!ELEMENT asignatura (#PCDATA)>
+    <!ELEMENT estudiantes (nombreEst, edad, genero, curso, movil?, correo+)>
+    <!ATTLIST estudiantes id CDATA #REQUIRED>
+    <!ATTLIST estudiantes movil CDATA #IMPLIED>
+    <!ELEMENT nombreEst (#PCDATA)>
+    <!ELEMENT edad (#PCDATA)>
+    <!ELEMENT genero (#PCDATA)>
+    <!ELEMENT curso (#PCDATA)>
+    <!ELEMENT movil (#PCDATA)>
+    <!ELEMENT correo (#PCDATA)>
+    
+
+]>
+
+<instituto nombre="Pino Montano" annoFundacion="2010">
+    <profesore>
+        <nombreProfe>Juan</nombreProfe>
+        <asignatura>Matematicas</asignatura>
+        <asignatura>Tecnologia</asignatura>
+        <genero>Masculino</genero>
+    </profesore>
+    <estudiantes id="555">
+        <nombreEst>Javier</nombreEst>
+        <edad>20</edad>
+        <genero>Masculino</genero>
+        <curso>2ºDAW</curso>
+        <movil>987654321</movil>
+        <correo>javier@gmail.com</correo>
+    </estudiantes>
+</instituto>
+
+
+
+
+

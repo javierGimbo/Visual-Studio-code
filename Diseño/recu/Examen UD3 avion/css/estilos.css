@@ -1,0 +1,98 @@
+/* CSS predefinido para el ejercicio 1 */
+#plane {
+    border: black thin solid; 
+    background-image: url("../imagenes/avion.png");
+    background-size: contain; 
+    height: 50vh;
+    background-repeat: no-repeat;
+    animation: avion 20s infinite;
+}
+
+#rayo-dcha,  #rayo-izq{
+    position:relative;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 10vh;
+    width: 12vw;
+    float: left;
+}
+
+#rayo-dcha{
+    background-image: url("../imagenes/rayo_dcha.png");
+    animation: rayoDerecha 20s infinite;
+}
+
+#rayo-izq
+{
+    background-image: url("../imagenes/rayo_izq.png");
+    animation: rayoIzquierda 20s infinite;
+}
+  
+
+@keyframes rayoDerecha{
+    10%{
+        transform: translate(0px);
+    }
+    20%{
+        transform: translate(0px);
+    }
+ 
+
+    40%{
+        transform: translate(1700px);
+    }
+
+    50%{
+        transform: translate(-900px);
+    }
+
+    60%{
+        transform: translate(-900px);
+    }
+
+    100%{
+        transform: translate(-900px);
+    }
+
+
+}
+
+@keyframes rayoIzquierda{
+    10%{
+        transform: translate(1700px);
+    }
+    20%{
+        transform: translate(-900px);
+    }
+    30%{
+        transform: translate(-900px);
+    }
+    40%{
+        transform: translate(-900px);
+    }
+    50%{
+        transform: translate(-900px);
+    }
+    60%{
+        transform: translate(-900px);
+    }
+    100%{
+        transform: translate(-900px);
+    }
+
+}
+
+
+@keyframes avion{
+    10%{
+        transform: translateX(300px) translateY(-120px)
+    }
+    
+
+    100%{
+        transform: translateX(300px) translateY(-120px)
+    }
+ 
+   
+
+}
