@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      table {
+        border-collapse: collapse;
+        text-align: center;
+      }
+
+      td {
+        border: 1px solid black;
+        padding: 3px 5px;
+      }
+
+      button {
+        margin: 3px;
+      }
+    </style>
+    <title>Examen</title>
+  </head>
+  <body>
+    <div id="salida"></div>
+    <br />
+    <button id="recuperarDatos">Recuperar Datos</button>
+    <h3>Nuevo Modulo</h3>
+    <form name="formNuevoVuelo">
+      <label>Aereolinea: </label><input type="text" name="aereolinea" />
+       <br />
+       <label>Destino: </label ><input type="text" name="destino" />
+       <br />
+       <label>Duracion: </label ><input type="number" name="duracion" />
+         <br />
+         <label>Origen: </label><input type="text" name="origen" />
+         <br />
+      <input type="submit" value="Insertar" />
+    </form>
+
+    <h3>Actualizar Vuelo</h3>
+    <form name="frmActualizaVuelo">
+      <label>Aerolinea (Firebase): </label><input type="text" name="aerolineaFireBase" /><br />
+      <label>Nueva aerolinea: </label><input type="text" name="aerolinea" /><br />
+      <input type="submit" value="Actualizar" />
+    </form>
+
+    <h3>Eliminar Vuelo</h3>
+    <form id="frmBorrarVuelo" name="frmBorrarVuelo" style="visibility: visible">
+        <label><h4>Vuelo a borrar (por aerolinea):</h4></label>
+        <input type="text" id="txtBorrarVuelo" /><br /><br />
+        <input type="submit" value="Borrar" />
+        </form>
+    <script src="./ejercicio1Recu.js"></script>
+  </body>
+</html>

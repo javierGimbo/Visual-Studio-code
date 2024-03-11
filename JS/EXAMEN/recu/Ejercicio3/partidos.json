@@ -1,0 +1,34 @@
+{
+  "partidos": [
+    {
+      "equipoLocal": "Sevilla FC",
+      "equipoVisitante": "FC Barcelona",
+      "golesLocal": 2,
+      "golesVisitante": 0
+    },
+    {
+      "equipoLocal": "Real Betis",
+      "equipoVisitante": "At. Madrid",
+      "golesLocal": 0,
+      "golesVisitante": 0
+    },
+    {
+      "equipoLocal": "Valencia",
+      "equipoVisitante": "Rayo Vallecano",
+      "golesLocal": 0,
+      "golesVisitante": 3
+    },
+    {
+      "equipoLocal": "Real Madrid",
+      "equipoVisitante": "Real Sociedad",
+      "golesLocal": 2,
+      "golesVisitante": 1
+    },
+    {
+      "equipoLocal": "Osasuna",
+      "equipoVisitante": "RCD Espanyol",
+      "golesLocal": 1,
+      "golesVisitante": 1
+    }
+  ]
+}
