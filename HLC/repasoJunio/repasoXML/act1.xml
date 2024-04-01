@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+
+<!DOCTYPE concesionario [
+    <!ELEMENT concesionario (coche*)>
+    <!ATTLIST concesionario provincia CDATA #REQUIRED>
+    <!ELEMENT coche (marca, modelo, (cilindrada|caballos), combustible, precio, anno, color, interesado*, fecha_limite)>
+    <!ATTLIST coche matricula CDATA #REQUIRED>
+    <!ELEMENT marca (#PCDATA)>
+    <!ELEMENT modelo (#PCDATA)>
+    <!ELEMENT cilindrada (#PCDATA)>
+    <!ELEMENT combustible (#PCDATA)>
+    <!ELEMENT caballos (#PCDATA)>
+    <!ELEMENT precio (#PCDATA)>
+    <!ELEMENT anno (#PCDATA)>
+    <!ELEMENT color (#PCDATA)>
+    <!ELEMENT interesado (dni, (correo|telefono))>
+    <!ELEMENT dni (#PCDATA)>
+    <!ELEMENT correo (#PCDATA)>
+    <!ELEMENT telefono (#PCDATA)>
+    <!ELEMENT fecha_limite (#PCDATA)>
+
+]>
+
+
+<concesionario provincia="Sevilla">
+    <coche matricula="1234XXX">
+        <marca>Renualt</marca>
+        <modelo>Clio</modelo>
+        <cilindrada>90cc</cilindrada>
+        <combustible>Diesel</combustible>
+        <precio>15.000</precio>
+        <anno>2020</anno>
+        <color>Naranja</color>
+        <interesado>                        <!-- puede o no estar -->
+            <dni>132456789A</dni>
+            <telefono>987654321</telefono>
+        </interesado>
+        <fecha_limite>2025-12-31</fecha_limite>
+    </coche>
+
+    <coche matricula="5678XXX">
+        <marca>ford</marca>
+        <modelo>Focus</modelo>
+        <caballos>90cc</caballos>
+        <combustible>Gasolina</combustible>
+        <precio>12.000</precio>
+        <anno>2020</anno>
+        <color>blanco</color>
+        <fecha_limite>2025-12-31</fecha_limite>
+    </coche>
+</concesionario>
