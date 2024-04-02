@@ -8,20 +8,18 @@ function App() {
   
   const buscarPersonaje = async () => {
     if (buscado.trim() === '') return;
-    
-    const url = 'https://rickandmortyapi.com/api';
-
+  
+    const url = `https://rickandmortyapi.com/api/character/?name=${buscado}`;
+  
     try {
       const response = await fetch(url);
       const data = await response.json();
-      if (data && data.data && data.data.results && data.data.results.length > 0) {
-        const personaje = data.data.results[0];
+      console.log('Datos de respuesta:', data);
+      if (data && data.results && data.results.length > 0) {
+        const personaje = data.results[0];
         setResutado(personaje);
-
       } else {
         console.log('No se encontraron resultados.');
-        console.log(data);        //muestro los datos por la pantalla
-
       }
     } catch (error) {
       console.error('Error:', error);
@@ -45,11 +43,10 @@ function App() {
           <p>Estatus: {resultado.status}</p>
           <p>Especie: {resultado.species}</p>
           <p>Tipo: {resultado.type}</p>
+          <p>Genero: {resultado.gender}</p>
+          <img src={resultado.image} alt={resultado.name} />
         </div>
       )}
-  
-    
-  
     </div>
   );
 }
