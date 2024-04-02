@@ -14,12 +14,18 @@ function App() {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      console.log('Datos de respuesta:', data);
+      const { name, id, status, species, gender} = data.results[0];
+      console.log('ID del personaje:', id);
+      console.log('Nombre del personaje:', name);
+      console.log('Estatus del personaje:', status);
+      console.log('Especie del personaje:', species);
+      console.log('Genero del personaje:', gender);
       if (data && data.results && data.results.length > 0) {
         const personaje = data.results[0];
         setResutado(personaje);
       } else {
         console.log('No se encontraron resultados.');
+        setResutado(null);
       }
     } catch (error) {
       console.error('Error:', error);
