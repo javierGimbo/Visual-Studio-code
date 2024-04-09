@@ -49,8 +49,10 @@ function App() {
      
     
       if (data && data.data && data.data.results && data.data.results.length > 0) {
-        const comicId = data.data.results[0].id; // Obtener el ID del primer cómic
-    console.log('ID del cómic:', comicId); // Imprimir solo el ID del cómic en la consola
+        const comicId = data.data.results[0].id; // Obtener el ID del primer cómi
+        const comicNombre = data.data.results[0].description
+        console.log('ID del cómic:', comicId); // Imprimir solo el ID del cómic en la consola
+        console.log('Nombre del cómic:', comicNombre); // Imprimir solo el ID del cómic en la consola
         const personaje = data.data.results[0];
         setResutado(personaje);
         setHistorial([...historial, personaje]);
