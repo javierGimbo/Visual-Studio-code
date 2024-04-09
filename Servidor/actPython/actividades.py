@@ -33,13 +33,38 @@ def celsius_a_fahrenheit():
     return celsius * 9/5 + 32
 
 # Ejercicio 5
-def es_primo(numero):
-    return true
+def es_primo(num):
+    if num <=1:
+        return False
+    for i in range(2, num):
+        if num % i ==0:
+            return False
+        return True 
+
+
+#ejercicio 8
+def contar_vocales(cadena):
+    vocales = {'a': 0, 'e': 0, 'i': 0, 'o': 0, 'u': 0}   
+    for letra in cadena:
+        if letra.lower() in vocales:
+            vocales[letra.lower()] +=1
+    return vocales
+
+cadena= input("Cadena de caracteres: ")
+print("Recuento de vocales", contar_vocales(cadena))
+
+#ejercicio 10
+def ordenar_lista(lista):
+        return sorted(lista)
+
+lista = [1,6,9,-5,8,5,3,-2,2]
+print(lista)
+print(ordenar_lista(lista))
 
 
 operaciones_basicas()
 print("Área del rectángulo:", calcular_area_rectangulo())
 print("Área del círculo:", calcular_area_circulo())
 print("Celsius a Fahrenheit:", celsius_a_fahrenheit())
-
+print("¿Es primo el número 6?", es_primo(6))
 
