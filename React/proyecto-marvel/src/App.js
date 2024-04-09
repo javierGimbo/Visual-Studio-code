@@ -7,7 +7,6 @@ function App() {
   const [resultado, setResutado] = useState(null);
   const [historial, setHistorial] = useState([]);
   const [favorito, setFavorito] = useState([]);
-  const [contador, setContador] = useState({}); 
 
   const clavePublica = 'c91f6665b74cd4857a490be0a7c0fd0e';
   const clavePrivada = '523206aa42672c9d662024ac26876ea3e73fe257';
@@ -28,12 +27,6 @@ function App() {
         setResutado(personaje);
         setHistorial([...historial, personaje]);
         setFavorito([...favorito, personaje]);
-
-        // Incrementar el contador para este personaje
-        setContador(prevContador => ({
-          ...prevContador,
-          [personaje.name]: (prevContador[personaje.name] || 0) + 1
-        }));
       } else {
         console.log('No se encontraron resultados.');
       }
@@ -53,17 +46,15 @@ function App() {
     try {
       const response = await fetch(url);
       const data = await response.json();
+     
+    
       if (data && data.data && data.data.results && data.data.results.length > 0) {
+        const comicId = data.data.results[0].id; // Obtener el ID del primer cómic
+    console.log('ID del cómic:', comicId); // Imprimir solo el ID del cómic en la consola
         const personaje = data.data.results[0];
         setResutado(personaje);
         setHistorial([...historial, personaje]);
         setFavorito([...favorito, personaje]);
-
-        // Incrementar el contador para este personaje
-        setContador(prevContador => ({
-          ...prevContador,
-          [personaje.title]: (prevContador[personaje.title] || 0) + 1
-        }));
       } else {
         console.log('No se encontraron resultados.');
       }
@@ -79,13 +70,6 @@ function App() {
     return md5(preHash);
   };
 
-  const ponerFavs = () => {
-    setFavorito([]);
-  };
-
-  const borrarHistorial = () => {
-    setHistorial([]);
-  };
 
   return (
     <div>
@@ -98,8 +82,6 @@ function App() {
       />
       <Button variant='contained' onClick={buscarPersonaje}>Buscar personaje</Button>
       <Button variant='contained' onClick={buscarComics}>Buscar comics</Button>
-      <Button variant='contained' onClick={borrarHistorial}>Borrar historial</Button>
-      <Button variant='contained' onClick={ponerFavs}>Favorito</Button>
       {resultado && (
         <div>
           <h1 className='nombre'>{resultado.name}</h1>
@@ -116,15 +98,6 @@ function App() {
         {historial.map((item, index) => (
           <li key={index}>
             {item.name ? item.name : item.title}
-          </li>
-        ))}
-      </ul>
-
-      <h2>Contador de personajes y comics</h2>
-      <ul>
-        {Object.entries(contador).map(([name, count]) => (
-          <li key={name}>
-             {name} se ha buscado: {count}
           </li>
         ))}
       </ul>
