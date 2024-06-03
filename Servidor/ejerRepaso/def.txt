@@ -1,0 +1,2 @@
+libro: sirve para leer
+silla: sitio para sentarse

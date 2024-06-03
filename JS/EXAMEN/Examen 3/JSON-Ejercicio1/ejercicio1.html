@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      table {
+        border-collapse: collapse;
+        text-align: center;
+      }
+
+      td {
+        border: 1px solid black;
+        padding: 3px 5px;
+      }
+
+      button {
+        margin: 3px;
+      }
+    </style>
+    <title>coche</title>
+  </head>
+  <body>
+    <div id="salida"></div>
+    <br />
+    <button id="recuperarDatos">Recuperar Datos</button>
+    <h3>Nuevo coche</h3>
+    <form name="formNuevoCoche">
+      <label>Marca: </label><input type="text" name="marca" />
+       <br />
+       <label>Modelo: </label ><input type="text" name="modelo" />
+       <br />
+       <label>Matricula: </label ><input type="text" name="matricula" />
+         <br />
+         <label>Color: </label><input type="text" name="color" />
+         <br />
+      <input type="submit" value="Insertar" />
+    </form>
+
+    <h3>Actualizar coche</h3>
+    <form name="frmActualizaCoche">
+      <label>Matricula: </label><input type="text" name="matriculaAct" /><br />
+      <label>Nueva matricula: </label><input type="text" name="nuevaMatricula" /><br />
+      <input type="submit" value="Actualizar" />
+    </form>
+
+    <h3>Eliminar coche</h3>
+    <form id="frmBorrarCoche" name="frmBorrarCoche" style="visibility: visible">
+        <label><h4>Coche a borrar (por matricula):</h4></label>
+        <input type="text" id="txtBorrarCoche" /><br /><br />
+        <input type="submit" value="Borrar" />
+        </form>
+    <script src="/JS/EXAMEN/Examen 3/JSON-Ejercicio1/ejercicio1.js"></script>
+  </body>
+</html>

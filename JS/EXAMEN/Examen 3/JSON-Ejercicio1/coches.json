@@ -1,0 +1,34 @@
+{
+  "coches": {
+    "-NO50LhJm8O00q1cAAuu": {
+      "marca": "Renault",
+      "modelo": "Megane 1.5 dCi",
+      "matricula": "0117WFZ",
+      "color": "Gris"
+    },
+    "-NO50_Dp2IOuhJX4t2xL": {
+      "marca": "Peugeot",
+      "modelo": "5008 Style 1.6D",
+      "matricula": "0855WTJ",
+      "color": "Gris"
+    },
+    "-NO50yKgi9iVXNrdo510": {
+      "marca": "Renault",
+      "modelo": "Scenic 1.5 dCi",
+      "matricula": "3340HJG",
+      "color": "Azul"
+    },
+    "-NO514EEYamndOxrNyqe": {
+      "marca": "Seat",
+      "modelo": "Ibiza 1.2 Tde",
+      "matricula": "7182SAJ",
+      "color": "Blanco"
+    },
+    "-NO518hBEAp-OpkpNH3m": {
+      "marca": "Opel",
+      "modelo": "Corsa 1.1 Lte",
+      "matricula": "9786VSE",
+      "color": "Rojo"
+    }
+  }
+}
