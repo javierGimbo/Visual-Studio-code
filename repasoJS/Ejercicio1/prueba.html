@@ -1,0 +1,113 @@
+teniendo este enunciado Partiendo de la plantilla facilitada con el ejercicio, implementar el código javascript que
+resuelva los siguientes apartados:
+a) Crear un elemento DIV dentro de cada nodo con la clase libro. Este nuevo elemento
+deberá contener el texto del atributo data-tip de la imagen de esa capa. Este nuevo
+elemento DIV deberá tener la clase tooltip para que coja el estilo correcto de forma
+automática.
+b) Si el checkbox está marcado (situación inicial), al pasar el puntero del ratón por encima
+de una imagen se podrá ver la capa oculta como un tooltip.
+c) Si se desmarca el checkbox no se mostrarán los tooltip y viceversa.
+
+este html que no se puede tocar: <!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <title>EJERCICIO 1</title>
+    <link href="css/estilos.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <h3>Ejercicio 1 - RECUPERACIÓN BLOQUE II - 20/06/2024</h3>
+    <input type="checkbox" name="verTips" checked="checked" />Ver tips
+    <div style="clear: both"></div>
+    <div class="libro">
+      <img
+        data-tip="Libreria de Javascript que permite simplificar la manera de interactuar con los documentos HTML, manipular el árbol DOM, manejar eventos, desarrollar animaciones y agregar interacción con la técnica AJAX a páginas web"
+        src="img/imagen01.jpg"
+        alt="jQuery"
+      />
+    </div>
+    <div class="libro">
+      <img
+        data-tip="Framework para diseño de sitios y aplicaciones web. Contiene plantillas de diseño con tipografía, formularios, botones, cuadros, menús de navegación y otros elementos de diseño basado en HTML y CSS, así como, extensiones de JavaScript opcionales adicionales"
+        src="img/imagen02.jpg"
+        alt="Bootstrap"
+      />
+    </div>
+    <div style="clear: both"></div>
+    <div class="libro">
+      <img
+        data-tip="Lenguaje de programación de uso general de código del lado del servidor originalmente diseñado para el desarrollo web de contenido dinámico"
+        src="img/imagen03.jpg"
+        alt="PHP"
+      />
+    </div>
+    <div class="libro">
+      <img
+        data-tip="Lenguaje de programación interpretado, orientado a objetos, basado en prototipos, imperativo, débilmente tipado y dinámico. Se utiliza principalmente en su forma del lado del cliente (client-side), implementado como parte de un navegador web permitiendo mejoras en la interfaz de usuario y páginas web dinámicas"
+        src="img/imagen04.jpg"
+        alt="Javascript"
+      />
+    </div>
+  </body>
+  <script type="text/javascript" src="js/ejercicio1.js"></script>
+</html>
+
+y este js que es el que se tiene que modificar: const checkBox = document.querySelector('input');
+const divsImagen =  document.querySelectorAll('.libro');
+
+if(checkBox.checked){
+    mostrarInfo(divsImagen);
+}else{
+    quitarClase(divsImagen);
+}
+
+
+
+function mostrarInfo(imagenes){
+    for(i = 0; i < imagenes.length; i++){
+        console.log(imagenes[i]);
+        let imagen = imagenes[i];
+        imagen.addEventListener("mouseover", muestraDatos);
+        imagen.addEventListener("mouseout", ocultaDatos);
+
+        const divNuevo = document.createElement('div');
+        divNuevo.classList.add("tooltip");
+        divNuevo.textContent = imagenes[0].children[0].getAttribute('data-tip');
+        divNuevo.style.visibility = "hidden";
+        imagen.append(divNuevo);
+    }  
+}
+
+function quitarClase(imagenes){    
+    for(i = 0; i < imagenes.length; i++){
+        console.log(imagenes[i]);
+        let imagen = imagenes[i];
+        imagen.removeEventListener("mouseover", muestraDatos);
+        imagen.removeEventListener("mouseout", ocultaDatos);
+    }
+}
+
+function muestraDatos(){
+    const nuevosDivs = document.querySelectorAll('.tooltip');
+    console.log(nuevosDivs);
+
+    for(i = 0; i< nuevosDivs.length; i++){
+        nuevosDivs[i].style.visibility = "visible";
+    }
+}
+
+function ocultaDatos(){
+    const nuevosDivs = document.querySelectorAll('.tooltip');
+    console.log(nuevosDivs);
+
+    for(i = 0; i< nuevosDivs.length; i++){
+        nuevosDivs[i].style.visibility = "hidden";
+    }
+}
+
+
+console.log(divsImagen);
+console.log(checkBox);
+
+que tengo mal
