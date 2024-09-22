@@ -78,36 +78,72 @@ public class GestorBD extends ConexionBD {
         return lista;
     }
     
-  public  void insertarAlumno(String nie, String nombre, int Modulo_idModulo){              
-        String sql = "Insert into Alumno values(?,?,?)";
-        int devuelve = 0;
-        try {            
-            this.sentenciaP = this.conexion.prepareStatement(sql);
-            this.sentenciaP.setString(1, nie);
-            this.sentenciaP.setString(2, nombre);
-            this.sentenciaP.setInt(3, Modulo_idModulo);
-            devuelve = this.sentenciaP.executeUpdate();            
-        } catch (SQLException ex) {
-            System.out.println(ex);           
-        }         
-        System.out.println("Se insertaron " + devuelve + " tuplas nuevas");       
-    }     
-  
-    public void modificarAlumno(String nie,String nombre, int Modulo_idModulo){
-        String sql = "update Alumno set nie= ? where nie= ?";
-        int devuelve = 0;
-        try {
-            this.sentenciaP = this.conexion.prepareStatement(sql);
-            this.sentenciaP.setString(1, nie);
-            this.sentenciaP.setString(2, nombre);
-            this.sentenciaP.setInt(2, Modulo_idModulo);
+    public void insertarAlumno(Alumno alumno) {
+    String checkSql = "SELECT * FROM Alumno WHERE nie = ?";
+    String insertSql = "INSERT INTO Alumno (nie, nombre, Modulo_idModulo) VALUES (?, ?, ?)";
 
-            devuelve = this.sentenciaP.executeUpdate();
-        } catch (SQLException ex) {
-            System.out.println("Error");
-        } 
-        System.out.println("Se modificó " + devuelve + " tuplas ");
-  }
-  
+    try {
+        // Verificamos si el alumno ya existe
+        this.sentenciaP = this.conexion.prepareStatement(checkSql);
+        this.sentenciaP.setString(1, alumno.getNie());
+        cursor = this.sentenciaP.executeQuery();
+
+        if (cursor.next()) {
+            System.out.println("El alumno con NIE " + alumno.getNie() + " ya existe.");
+        } else {
+            // Insertamos el nuevo alumno
+            this.sentenciaP = this.conexion.prepareStatement(insertSql);
+            this.sentenciaP.setString(1, alumno.getNie());
+            this.sentenciaP.setString(2, alumno.getNombre());
+            this.sentenciaP.setInt(3, alumno.getModulo().getCodigo());
+            
+            int filasInsertadas = this.sentenciaP.executeUpdate();
+            if (filasInsertadas > 0) {
+                System.out.println("Alumno insertado correctamente.");
+            }
+        }
+    } catch (SQLException ex) {
+        System.out.println("Error al insertar alumno: " + ex.getMessage());
+    }
+}
+    
+    public void borrarModulosConDuracionMayorA70() {
+    String sql = "DELETE FROM Modulo WHERE duracion > 70";
+
+    try {
+        this.sentenciaP = this.conexion.prepareStatement(sql);
+        int filasEliminadas = this.sentenciaP.executeUpdate();
+
+        if (filasEliminadas > 0) {
+            System.out.println(filasEliminadas + " módulos con duración mayor a 70 horas han sido eliminados.");
+        } else {
+            System.out.println("No hay módulos con duración mayor a 70 horas.");
+        }
+    } catch (SQLException ex) {
+        System.out.println("Error al eliminar módulos: " + ex.getMessage());
+    }
+}
+
+    public void actualizarModuloPorNombre(String nombreModulo, int nuevaDuracion) {
+    String sql = "UPDATE Modulo SET duracion = ? WHERE nombre = ?";
+
+    try {
+        this.sentenciaP = this.conexion.prepareStatement(sql);
+        this.sentenciaP.setInt(1, nuevaDuracion);
+        this.sentenciaP.setString(2, nombreModulo);
+        
+        int filasActualizadas = this.sentenciaP.executeUpdate();
+
+        if (filasActualizadas > 0) {
+            System.out.println("El módulo " + nombreModulo + " ha sido actualizado.");
+        } else {
+            System.out.println("No se encontró un módulo con el nombre " + nombreModulo + ".");
+        }
+    } catch (SQLException ex) {
+        System.out.println("Error al actualizar el módulo: " + ex.getMessage());
+    }
+}
+
+
 
 }
