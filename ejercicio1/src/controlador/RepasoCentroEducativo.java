@@ -4,6 +4,9 @@
  */
 package controlador;
 
+import modelo.Alumno;
+import modelo.Modulo;
+
 /**
  *
  * @author ana
@@ -18,6 +21,15 @@ public class RepasoCentroEducativo {
         miCentro.listadoAlumnos();
         System.out.println("____________________");
         miCentro.listadoModulos();
+        
+         Alumno nuevoAlumno = new Alumno("A222", "JAvier", new Modulo(1));
+        miCentro.insertarNuevoAlumno(nuevoAlumno);
+
+        // Borrar módulos con duración mayor a 70 horas
+        miCentro.borrarModulosConDuracionMayorA70();
+
+        // Actualizar un módulo por nombre
+        miCentro.actualizarModuloPorNombre("MATES", 50);
     }
 
 }
